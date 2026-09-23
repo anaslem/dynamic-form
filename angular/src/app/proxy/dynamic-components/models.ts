@@ -11,8 +11,11 @@ export interface DynamicInputConfigurationDto extends ADynamicConfigurationDto {
   range?: DynamicRangeValueDto;
   step?: number | null;
   defaultValue?: string;
-  prefix?: string;
+  suffix?: string;
   maxLength?: number | null;
+  minLength?: number | null;
+  regexPattern?: string;
+  isClearable?: boolean;
 }
 
 export interface DynamicSelectConfigurationDto extends ADynamicConfigurationDto {

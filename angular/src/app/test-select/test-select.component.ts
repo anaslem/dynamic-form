@@ -156,4 +156,18 @@ export class TestSelectComponent {
     defaultValue: '30'
   };
   valeurInputInteger: number | null = null;
+
+  // Scénario 4 : Code Postal (Regex, MinLength, Clearable)
+  configInputPostal = {
+    dynamicComponentType: 3, // Input
+    valueType: DynamicInputValueType.Text,
+    label: '4. Code Postal (Regex + Clearable)',
+    placeholder: 'Ex: 75000',
+    indicator: 'Doit contenir exactement 5 chiffres.',
+    isClearable: true,
+    minLength: 5,
+    maxLength: 5,
+    regexPattern: '^[0-9]{5}$' // Autorise uniquement 5 chiffres
+  };
+  valeurInputPostal: string | null = null;
 }

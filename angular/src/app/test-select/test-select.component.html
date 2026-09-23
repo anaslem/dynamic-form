@@ -164,5 +164,20 @@
       </div>
     </div>
 
+    <!-- TEST INPUT 4 : Regex & Clearable -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-secondary text-white">
+          Cas 4 : Input Regex + Clearable
+        </div>
+        <div class="card-body">
+          <app-dynamic-input [config]="configInputPostal" [(ngModel)]="valeurInputPostal"></app-dynamic-input>
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeurInputPostal | json }}</pre>
+        </div>
+      </div>
+    </div>
+
   </div>
   </div>

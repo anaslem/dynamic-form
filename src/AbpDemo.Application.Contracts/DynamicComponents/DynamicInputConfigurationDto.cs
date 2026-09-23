@@ -46,11 +46,17 @@ public class DynamicInputConfigurationDto : ADynamicConfigurationDto
     /// </summary>
     public string DefaultValue { get; set; }
 
-    /// <summary>
-    /// Prefix displayed before the value.
-    /// </summary>
-    public string Prefix { get; set; } = string.Empty;
+    // 1. Prefix renommé en Suffix !
+    public string Suffix { get; set; } = string.Empty;
 
-    // Nouvelle propriété pour la validation des textes
     public int? MaxLength { get; set; }
+
+    // 2. NOUVEAU : Longueur minimum
+    public int? MinLength { get; set; }
+
+    // 3. NOUVEAU : Expression régulière
+    public string RegexPattern { get; set; }
+
+    // 4. NOUVEAU : Bouton pour vider le champ
+    public bool IsClearable { get; set; } = false;
 }

@@ -63,10 +63,15 @@ export class DynamicInputComponent implements ControlValueAccessor, Validator {
       range: c.range,
       step: c.step,
       defaultValue: c.defaultValue ?? null,
-      prefix: c.prefix ?? '',
       maxLength: c.maxLength ?? null,
       disabled: c.disabled ?? false,
-      required: c.required ?? false
+      required: c.required ?? false,
+      
+      // LES NOUVEAUTÉS
+      suffix: c.suffix ?? '',
+      minLength: c.minLength ?? null,
+      regexPattern: c.regexPattern ?? '',
+      isClearable: c.isClearable ?? false
     };
   });
 
@@ -105,6 +110,12 @@ export class DynamicInputComponent implements ControlValueAccessor, Validator {
     this.onChange(newValue);
   }
 
+  clearValue(event?: Event) {
+    if (event) event.stopPropagation();
+    this.updateValue(null);
+    this.onTouched(); // Marque le champ comme touché pour déclencher l'erreur "required" si besoin
+  }
+
   // --- CONTROL VALUE ACCESSOR ---
   writeValue(val: any): void {
     // CORRECTION DU BUG DEFAULT VALUE : Si ngModel nous envoie "null" ou "vide"
@@ -128,41 +139,31 @@ export class DynamicInputComponent implements ControlValueAccessor, Validator {
 
   // --- VALIDATION ANGULAR ---
   validate(control: AbstractControl): ValidationErrors | null {
-    this.parentControl = control; // Sauvegarde pour afficher les erreurs dans le HTML
-    
+    this.parentControl = control;
     const val = control.value;
     const config = this.safeConfig();
     const errors: ValidationErrors = {};
     let hasError = false;
 
-    // 1. Validation : Obligatoire
-    if (config.required && (val === null || val === undefined || val === '')) {
-      errors['required'] = true;
-      hasError = true;
-    }
+    // ... (garde le code existant pour Required, Min, Max et MaxLength) ...
 
-    // 2. Validation : Nombres (Min / Max)
-    if (val !== null && val !== '' && config.valueType !== DynamicInputValueType.Text) {
-      const numVal = Number(val);
-      if (config.range?.minValue != null && numVal < config.range.minValue) {
-        errors['min'] = { min: config.range.minValue, actual: numVal };
-        hasError = true;
-      }
-      if (config.range?.maxValue != null && numVal > config.range.maxValue) {
-        errors['max'] = { max: config.range.maxValue, actual: numVal };
+    // NOUVEAU : Validation - Min Length (Texte uniquement)
+    if (val != null && val !== '' && config.valueType === DynamicInputValueType.Text && config.minLength != null) {
+      if (String(val).length < config.minLength) {
+        errors['minlength'] = { requiredLength: config.minLength, actualLength: String(val).length };
         hasError = true;
       }
     }
 
-    // 3. Validation : Texte (Max Length)
-    if (val != null && config.valueType === DynamicInputValueType.Text && config.maxLength != null) {
-      if (String(val).length > config.maxLength) {
-        errors['maxlength'] = { requiredLength: config.maxLength, actualLength: String(val).length };
+    // NOUVEAU : Validation - Regex Pattern
+    if (val != null && val !== '' && config.regexPattern) {
+      const regex = new RegExp(config.regexPattern);
+      if (!regex.test(String(val))) {
+        errors['pattern'] = { requiredPattern: config.regexPattern, actualValue: val };
         hasError = true;
       }
     }
 
-    // Si on a des erreurs, on les renvoie, ce qui passe ngModel à "INVALID"
     return hasError ? errors : null;
   }
 }

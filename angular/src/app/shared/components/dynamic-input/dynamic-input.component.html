@@ -9,11 +9,24 @@
       </label>
     }
 
-    <!-- Wrapper avec ou sans Prefix -->
-    @if (safeConfig().prefix) {
+    <!-- Wrapper avec Suffix OU Clearable -->
+    @if (safeConfig().suffix || safeConfig().isClearable) {
       <div class="input-group">
+        
         <ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
-        <span class="input-group-text bg-light text-muted">{{ safeConfig().prefix }}</span>
+        
+        <!-- Bouton Clear (Croix) -->
+        @if (safeConfig().isClearable && value() !== null && value() !== '' && !isDisabled() && !safeConfig().disabled) {
+          <button class="btn btn-outline-secondary bg-white border-start-0" type="button" (click)="clearValue($event)">
+            <i class="fa fa-times text-muted"></i>
+          </button>
+        }
+        
+        <!-- Suffixe (ex: MAD, %, kg) -->
+        @if (safeConfig().suffix) {
+          <span class="input-group-text bg-light text-muted">{{ safeConfig().suffix }}</span>
+        }
+        
       </div>
     } @else {
       <ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
@@ -33,6 +46,12 @@
         }
         @if (parentControl?.errors?.['maxlength']) {
           <div><i class="fa fa-exclamation-circle me-1"></i> Le texte ne doit pas dépasser {{ parentControl?.errors?.['maxlength'].requiredLength }} caractères.</div>
+        }
+        @if (parentControl?.errors?.['minlength']) {
+          <div><i class="fa fa-exclamation-circle me-1"></i> Le texte doit contenir au moins {{ parentControl?.errors?.['minlength'].requiredLength }} caractères.</div>
+        }
+        @if (parentControl?.errors?.['pattern']) {
+          <div><i class="fa fa-exclamation-circle me-1"></i> Le format saisi est invalide.</div>
         }
       </div>
     }
@@ -54,7 +73,7 @@
     [name]="safeConfig().name"
     [type]="inputType()"
     
-    class="form-control"
+    class="form-control border-end-0"
     [class.is-invalid]="parentControl?.invalid && (parentControl?.touched || parentControl?.dirty)"
     
     [disabled]="isDisabled() || safeConfig().disabled"
