@@ -1,0 +1,69 @@
+@if (safeConfig().isDisplayed) {
+  <div class="dynamic-input-wrapper mb-3" [class.disabled]="isDisabled() || safeConfig().disabled">
+    
+    <!-- Label -->
+    @if (safeConfig().label) {
+      <label [for]="safeConfig().id" class="form-label">
+        {{ safeConfig().label | abpLocalization }}
+        @if (safeConfig().required) { <span class="text-danger">*</span> }
+      </label>
+    }
+
+    <!-- Wrapper avec ou sans Prefix -->
+    @if (safeConfig().prefix) {
+      <div class="input-group">
+        <ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
+        <span class="input-group-text bg-light text-muted">{{ safeConfig().prefix }}</span>
+      </div>
+    } @else {
+      <ng-container *ngTemplateOutlet="inputTemplate"></ng-container>
+    }
+
+    <!-- NOUVEAU : Messages d'erreur de validation (Affichés uniquement si le champ est touché/modifié) -->
+    @if (parentControl?.invalid && (parentControl?.touched || parentControl?.dirty)) {
+      <div class="invalid-feedback d-block mt-1">
+        @if (parentControl?.errors?.['required']) {
+          <div><i class="fa fa-exclamation-circle me-1"></i> Ce champ est obligatoire.</div>
+        }
+        @if (parentControl?.errors?.['min']) {
+          <div><i class="fa fa-exclamation-circle me-1"></i> La valeur ne peut pas être inférieure à {{ parentControl?.errors?.['min'].min }}.</div>
+        }
+        @if (parentControl?.errors?.['max']) {
+          <div><i class="fa fa-exclamation-circle me-1"></i> La valeur ne peut pas être supérieure à {{ parentControl?.errors?.['max'].max }}.</div>
+        }
+        @if (parentControl?.errors?.['maxlength']) {
+          <div><i class="fa fa-exclamation-circle me-1"></i> Le texte ne doit pas dépasser {{ parentControl?.errors?.['maxlength'].requiredLength }} caractères.</div>
+        }
+      </div>
+    }
+
+    <!-- Indicateur (Message d'aide) affiché seulement s'il n'y a pas d'erreur -->
+    @if (safeConfig().indicator && !parentControl?.invalid) {
+      <div class="form-text text-muted mt-1">
+        <i class="fa fa-info-circle me-1"></i>
+        {{ safeConfig().indicator | abpLocalization }}
+      </div>
+    }
+  </div>
+}
+
+<!-- TEMPLATE DE L'INPUT -->
+<ng-template #inputTemplate>
+  <input 
+    [id]="safeConfig().id"
+    [name]="safeConfig().name"
+    [type]="inputType()"
+    
+    class="form-control"
+    [class.is-invalid]="parentControl?.invalid && (parentControl?.touched || parentControl?.dirty)"
+    
+    [disabled]="isDisabled() || safeConfig().disabled"
+    [placeholder]="safeConfig().placeholder | abpLocalization"
+    [min]="safeConfig().range?.minValue ?? null"
+    [max]="safeConfig().range?.maxValue ?? null"
+    [step]="stepValue()"
+    [attr.maxlength]="safeConfig().valueType === 3 ? safeConfig().maxLength : null"
+    [value]="value() ?? ''"
+    (input)="onInput($event)"
+    (blur)="onTouched()">
+</ng-template>

@@ -1,0 +1,168 @@
+<div class="container mt-5">
+  <h2 class="mb-4">Tests du Composant Select Dynamique</h2>
+
+  <div class="row">
+    
+    <!-- TEST 1 : Dropdown Single -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          Cas 1 : Dropdown, Single-select
+        </div>
+        <div class="card-body">
+          <app-dynamic-select 
+            [config]="config1" 
+            [(ngModel)]="valeur1">
+          </app-dynamic-select>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeur1 | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST 2 : Dropdown Multi + Limite -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+          Cas 2 : Dropdown, Multi-select (Max 2), Autocomplete
+        </div>
+        <div class="card-body">
+          <app-dynamic-select 
+            [config]="config2" 
+            [(ngModel)]="valeur2">
+          </app-dynamic-select>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeur2 | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST 3 : Liste Plate Single -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+          Cas 3 : Liste plate, Single-select, Autocomplete
+        </div>
+        <div class="card-body">
+          <app-dynamic-select 
+            [config]="config3" 
+            [(ngModel)]="valeur3">
+          </app-dynamic-select>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeur3 | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST 4 : Liste Plate Multi + Disabled option -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-warning text-dark">
+          Cas 4 : Liste plate, Multi-select + Options Disabled
+        </div>
+        <div class="card-body">
+          <app-dynamic-select 
+            [config]="config4" 
+            [(ngModel)]="valeur4">
+          </app-dynamic-select>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeur4 | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST 5 : Global Disabled -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-secondary text-white">
+          Cas 5 : Composant Désactivé (Global)
+        </div>
+        <div class="card-body">
+          <app-dynamic-select 
+            [config]="config5" 
+            [(ngModel)]="valeur5">
+          </app-dynamic-select>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeur5 | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Titre de section pour séparer visuellement -->
+  <div class="container mt-5">
+  <h2 class="mb-4">Tests du Composant Input Dynamique</h2>
+
+  <div class="row">
+
+    <!-- TEST INPUT 1 : Texte (Required, Default Value) -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          Cas 1 : Input Texte (Requis, Valeur par défaut)
+        </div>
+        <div class="card-body">
+          <app-dynamic-input 
+            [config]="configInputText" 
+            [(ngModel)]="valeurInputText">
+          </app-dynamic-input>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeurInputText | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST INPUT 2 : Décimal (Prefix, Range, Indicator) -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+          Cas 2 : Input Décimal (Suffixe, Validation Range)
+        </div>
+        <div class="card-body">
+          <app-dynamic-input 
+            [config]="configInputDecimal" 
+            [(ngModel)]="valeurInputDecimal">
+          </app-dynamic-input>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeurInputDecimal | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEST INPUT 3 : Entier (Disabled, Default Value) -->
+    <div class="col-md-6">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-secondary text-white">
+          Cas 3 : Input Entier (Désactivé)
+        </div>
+        <div class="card-body">
+          <app-dynamic-input 
+            [config]="configInputInteger" 
+            [(ngModel)]="valeurInputInteger">
+          </app-dynamic-input>
+
+          <hr class="mt-4">
+          <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
+          <pre class="bg-light p-2 rounded border">{{ valeurInputInteger | json }}</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>

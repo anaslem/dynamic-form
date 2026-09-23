@@ -1,0 +1,21 @@
+.option-row {
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  
+  // /* Léger effet au survol, sans effet "bouton pressé" */
+  // &:hover:not(.disabled) {
+  //   background-color: var(--bs-light);
+  // }
+  
+  /* L'état disabled bloque réellement toutes les interactions DOM */
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none; /* Coupe les événements de clic visuellement et fonctionnellement */
+  }
+}
+
+.options-container {
+  &::-webkit-scrollbar { width: 6px; }
+  &::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 4px; }
+}

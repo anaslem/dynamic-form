@@ -1,0 +1,112 @@
+@if (safeConfig().isDisplayed) {
+<div class="dynamic-select-wrapper mb-3" [class.disabled]="isDisabled() || safeConfig().disabled">
+  
+  @if (safeConfig().label) {
+    <label class="form-label">
+      {{ safeConfig().label | abpLocalization }}
+      @if (safeConfig().required) { <span class="text-danger">*</span> }
+    </label>
+  }
+
+  <!-- MODE: DROPDOWN -->
+  @if (safeConfig().isDropDownDisplay) {
+    <div class="dropdown" [class.show]="isOpen()">
+      
+      <button 
+        type="button" 
+        class="btn w-100 text-start d-flex justify-content-between align-items-center bg-white border text-dark"
+        [disabled]="isDisabled() || safeConfig().disabled"
+        (click)="toggleDropdown()">
+        
+        <span class="text-truncate">{{ displayValue() | abpLocalization }}</span>
+        
+        <div class="d-flex align-items-center gap-2">
+          @if (safeConfig().isClearable && selectedIds().length > 0 && !isDisabled() && !safeConfig().disabled) {
+            <i class="fa fa-times text-muted" (click)="clearSelection($event)" style="cursor: pointer;"></i>
+          }
+          <i class="fa fa-chevron-down"></i>
+        </div>
+      </button>
+
+      <div class="dropdown-menu w-100 p-2" [class.show]="isOpen()">
+        
+        @if (safeConfig().shouldEnableAutocomplete) {
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control form-control-sm"
+              placeholder="{{ '::Search' | abpLocalization }}"
+              [ngModel]="searchQuery()"
+              (ngModelChange)="searchQuery.set($event)">
+          </div>
+        }
+
+        <div class="options-container" style="max-height: 250px; overflow-y: auto;">
+          <ng-container *ngTemplateOutlet="optionsTemplate"></ng-container>
+        </div>
+
+      </div>
+    </div>
+  } 
+  <!-- MODE: LISTE PLATE -->
+  @else {
+    <div class="list-display-container border rounded p-3 bg-white">
+      
+      @if (safeConfig().shouldEnableAutocomplete) {
+        <div class="mb-3">
+          <input 
+            type="text" 
+            class="form-control form-control-sm"
+            placeholder="{{ '::Search' | abpLocalization }}"
+            [ngModel]="searchQuery()"
+            (ngModelChange)="searchQuery.set($event)">
+        </div>
+      }
+
+      <div class="options-container">
+        <ng-container *ngTemplateOutlet="optionsTemplate"></ng-container>
+      </div>
+      
+    </div>
+  }
+
+  @if (isMaxSelectionReached()) {
+    <div class="form-text text-warning mt-1">
+      <i class="fa fa-exclamation-triangle me-1"></i>
+      {{ safeConfig().messageWhenMaxSelectionLengthExceeded | abpLocalization }}
+    </div>
+  }
+
+</div>
+
+<!-- TEMPLATE COMMUN: Boucle des options -->
+<ng-template #optionsTemplate>
+  @if (filteredOptions().length === 0) {
+    <div class="text-muted text-center py-2 p-2">
+      {{ '::NoData' | abpLocalization }}
+    </div>
+  }
+  
+  @for (option of filteredOptions(); track option.id) {
+    <!-- 1. J'ai retiré "form-check" ici -->
+    <div 
+      class="d-flex align-items-center py-2 px-3 m-0 option-row border-bottom" 
+      [class.disabled]="option.disabled || (!selectedIds().includes(option.id!) && isMaxSelectionReached())"
+      (click)="toggleOption(option)">
+      
+      <!-- 2. J'ai ajouté m-0 pour casser la marge négative de Bootstrap -->
+      <input 
+        class="form-check-input m-0 flex-shrink-0" 
+        type="checkbox" 
+        style="pointer-events: none;"
+        [checked]="selectedIds().includes(option.id!)">
+        
+      <!-- 3. J'ai ajouté ms-3 (margin-start) pour décoller le texte de la checkbox -->
+      <label class="form-check-label mb-0 w-100 ms-3" style="pointer-events: none;">
+        {{ option.value }}
+      </label>
+      
+    </div>
+  }
+</ng-template>
+}

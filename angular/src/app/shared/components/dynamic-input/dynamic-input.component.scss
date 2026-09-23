@@ -1,0 +1,18 @@
+.dynamic-input-wrapper {
+  &.disabled {
+    opacity: 0.8;
+  }
+}
+
+// Supprime les flèches (spinners) des inputs number natifs si besoin
+// (Optionnel : si tu veux les garder, tu peux effacer ce bloc)
+/*
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+*/
