@@ -1,0 +1,68 @@
+<div class="options-wrapper">
+  
+  <!-- Barre de recherche (Identique à la maquette) -->
+  <div class="options-search-bar d-flex align-items-center px-3 py-2">
+    <i class="fa fa-search text-muted me-2"></i>
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Rechercher une option" 
+      [(ngModel)]="searchQuery">
+  </div>
+
+  <!-- Liste des options par catégorie -->
+  <div>
+    @for (group of filteredGroups(); track group.categoryName) {
+      
+      <!-- En-tête de catégorie (Gris clair : PACKS, EQUIPEMENTS...) -->
+      <div class="option-category-header text-uppercase d-flex justify-content-between align-items-center">
+        <span>{{ group.categoryName }}</span>
+        <i class="fa fa-chevron-up text-muted"></i>
+      </div>
+      
+      <!-- Liste des cases à cocher -->
+      <div class="bg-white">
+        @for (option of group.options; track option.id) {
+          
+          <div class="option-item d-flex justify-content-between align-items-center">
+            
+            <div class="form-check mb-0">
+              <input 
+                class="form-check-input me-3" 
+                type="checkbox" 
+                [id]="'opt-' + option.id"
+                [checked]="isSelected(option.id)"
+                (change)="onToggleOption(option.id)"
+                [disabled]="option.isMandatory">
+                
+              <label class="form-check-label text-dark" style="font-size: 0.8rem;" [for]="'opt-' + option.id">
+                <span class="fw-semibold">{{ option.name }}</span>
+                <a href="javascript:void(0)" class="ms-2 text-decoration-underline text-primary" style="font-size: 0.7rem;">Voir détails</a>
+              </label>
+            </div>
+
+            <!-- Prix TTC -->
+            <div class="text-end text-muted small fw-semibold">
+              @if (option.price === 0) {
+                Inclus
+              } @else {
+                {{ option.price | number:'1.2-2' }} € TTC
+              }
+            </div>
+            
+          </div>
+          
+        }
+      </div>
+
+    }
+
+    <!-- Si aucun résultat de recherche -->
+    @if (filteredGroups().length === 0) {
+      <div class="text-center p-4 text-muted">
+        <p class="mb-0">Aucune option ne correspond.</p>
+      </div>
+    }
+  </div>
+
+</div>

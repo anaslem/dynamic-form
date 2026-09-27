@@ -2,20 +2,14 @@
   <h2 class="mb-4">Tests du Composant Select Dynamique</h2>
 
   <div class="row">
-    
     <!-- TEST 1 : Dropdown Single -->
     <div class="col-md-6">
       <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-primary text-white">
-          Cas 1 : Dropdown, Single-select
-        </div>
+        <div class="card-header bg-primary text-white">Cas 1 : Dropdown, Single-select</div>
         <div class="card-body">
-          <app-dynamic-select 
-            [config]="config1" 
-            [(ngModel)]="valeur1">
-          </app-dynamic-select>
+          <app-dynamic-select [config]="config1" [(ngModel)]="valeur1"> </app-dynamic-select>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeur1 | json }}</pre>
         </div>
@@ -29,12 +23,9 @@
           Cas 2 : Dropdown, Multi-select (Max 2), Autocomplete
         </div>
         <div class="card-body">
-          <app-dynamic-select 
-            [config]="config2" 
-            [(ngModel)]="valeur2">
-          </app-dynamic-select>
+          <app-dynamic-select [config]="config2" [(ngModel)]="valeur2"> </app-dynamic-select>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeur2 | json }}</pre>
         </div>
@@ -48,12 +39,9 @@
           Cas 3 : Liste plate, Single-select, Autocomplete
         </div>
         <div class="card-body">
-          <app-dynamic-select 
-            [config]="config3" 
-            [(ngModel)]="valeur3">
-          </app-dynamic-select>
+          <app-dynamic-select [config]="config3" [(ngModel)]="valeur3"> </app-dynamic-select>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeur3 | json }}</pre>
         </div>
@@ -67,12 +55,9 @@
           Cas 4 : Liste plate, Multi-select + Options Disabled
         </div>
         <div class="card-body">
-          <app-dynamic-select 
-            [config]="config4" 
-            [(ngModel)]="valeur4">
-          </app-dynamic-select>
+          <app-dynamic-select [config]="config4" [(ngModel)]="valeur4"> </app-dynamic-select>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeur4 | json }}</pre>
         </div>
@@ -82,31 +67,24 @@
     <!-- TEST 5 : Global Disabled -->
     <div class="col-md-6">
       <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-secondary text-white">
-          Cas 5 : Composant Désactivé (Global)
-        </div>
+        <div class="card-header bg-secondary text-white">Cas 5 : Composant Désactivé (Global)</div>
         <div class="card-body">
-          <app-dynamic-select 
-            [config]="config5" 
-            [(ngModel)]="valeur5">
-          </app-dynamic-select>
+          <app-dynamic-select [config]="config5" [(ngModel)]="valeur5"> </app-dynamic-select>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeur5 | json }}</pre>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
 <!-- Titre de section pour séparer visuellement -->
-  <div class="container mt-5">
+<div class="container mt-5">
   <h2 class="mb-4">Tests du Composant Input Dynamique</h2>
 
   <div class="row">
-
     <!-- TEST INPUT 1 : Texte (Required, Default Value) -->
     <div class="col-md-6">
       <div class="card mb-4 shadow-sm">
@@ -114,12 +92,14 @@
           Cas 1 : Input Texte (Requis, Valeur par défaut)
         </div>
         <div class="card-body">
-          <app-dynamic-input 
-            [config]="configInputText" 
-            [(ngModel)]="valeurInputText">
+          <app-dynamic-input
+            [config]="configInputText"
+            [(ngModel)]="valeurInputText"
+            (ngModelChange)="onLogChange($event)"
+            >>
           </app-dynamic-input>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeurInputText | json }}</pre>
         </div>
@@ -133,12 +113,10 @@
           Cas 2 : Input Décimal (Suffixe, Validation Range)
         </div>
         <div class="card-body">
-          <app-dynamic-input 
-            [config]="configInputDecimal" 
-            [(ngModel)]="valeurInputDecimal">
+          <app-dynamic-input [config]="configInputDecimal" [(ngModel)]="valeurInputDecimal">
           </app-dynamic-input>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeurInputDecimal | json }}</pre>
         </div>
@@ -148,16 +126,12 @@
     <!-- TEST INPUT 3 : Entier (Disabled, Default Value) -->
     <div class="col-md-6">
       <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-secondary text-white">
-          Cas 3 : Input Entier (Désactivé)
-        </div>
+        <div class="card-header bg-secondary text-white">Cas 3 : Input Entier (Désactivé)</div>
         <div class="card-body">
-          <app-dynamic-input 
-            [config]="configInputInteger" 
-            [(ngModel)]="valeurInputInteger">
+          <app-dynamic-input [config]="configInputInteger" [(ngModel)]="valeurInputInteger">
           </app-dynamic-input>
 
-          <hr class="mt-4">
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeurInputInteger | json }}</pre>
         </div>
@@ -167,17 +141,50 @@
     <!-- TEST INPUT 4 : Regex & Clearable -->
     <div class="col-md-6">
       <div class="card mb-4 shadow-sm">
-        <div class="card-header bg-secondary text-white">
-          Cas 4 : Input Regex + Clearable
-        </div>
+        <div class="card-header bg-secondary text-white">Cas 4 : Input Regex + Clearable</div>
         <div class="card-body">
-          <app-dynamic-input [config]="configInputPostal" [(ngModel)]="valeurInputPostal"></app-dynamic-input>
-          <hr class="mt-4">
+          <app-dynamic-input
+            [config]="configInputPostal"
+            [(ngModel)]="valeurInputPostal"
+          ></app-dynamic-input>
+          <hr class="mt-4" />
           <p class="mb-1 fw-bold text-muted">Valeur renvoyée par le composant (ngModel) :</p>
           <pre class="bg-light p-2 rounded border">{{ valeurInputPostal | json }}</pre>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
+<div class="container mt-5">
+  <h2 class="mb-4">Test : Rendu d'une liste dynamique (API)</h2>
+
+  <div class="row">
+    <!-- On boucle sur la liste reçue de l'API -->
+    @for (config of apiInputConfigurations; track config.name) {
+      <div class="col-md-6">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-header bg-secondary text-white">Champ : {{ config.name }}</div>
+          <div class="card-body">
+            <app-dynamic-input
+              [config]="config"
+              [(ngModel)]="formData[config.name!]"
+              (ngModelChange)="onLogChange($event)"
+            >
+            </app-dynamic-input>
+          </div>
+        </div>
+      </div>
+    }
   </div>
+
+  <!-- Affichage global du résultat -->
+  <div class="card mt-4 shadow border-primary">
+    <div class="card-header bg-primary text-white fw-bold">
+      Payload final (Prêt à être envoyé au backend)
+    </div>
+    <div class="card-body">
+      <pre class="mb-0">{{ formData | json }}</pre>
+    </div>
   </div>
+</div>

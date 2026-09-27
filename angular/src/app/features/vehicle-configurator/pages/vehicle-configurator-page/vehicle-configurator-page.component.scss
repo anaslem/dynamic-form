@@ -1,0 +1,116 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6; // Gris très clair
+  min-height: calc(100vh - 70px); 
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+// --- ZONE GAUCHE (RÉSUMÉ) ---
+.status-badge {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #10b981; // Point vert
+    border-radius: 50%;
+  }
+}
+
+.price-box {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: left;
+  .label { font-size: 0.7rem; color: #6b7280; margin-bottom: 0.2rem; }
+  .value { font-size: 0.95rem; font-weight: 700; color: #111827; }
+}
+
+.specs-list {
+  font-size: 0.75rem;
+  color: #4b5563;
+  div { padding: 0.2rem 0; }
+  .spec-val { font-weight: 600; color: #111827; }
+}
+
+.view-btn-group {
+  display: flex;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+  .btn {
+    flex: 1;
+    border: none;
+    border-right: 1px solid #e5e7eb;
+    border-radius: 0;
+    font-size: 0.7rem;
+    color: #6b7280;
+    padding: 0.4rem 0;
+    &:last-child { border-right: none; }
+    &.active, &:hover { background-color: #f3f4f6; color: #111827; font-weight: 600; }
+  }
+}
+
+.config-list-item {
+  font-size: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  justify-content: space-between;
+  &:last-child { border-bottom: none; }
+  .val { color: #111827; font-weight: 600; text-align: right; max-width: 60%; }
+}
+
+// --- ZONE DROITE (CONFIGURATEUR) ---
+.config-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin-bottom: 1.25rem;
+
+  .config-section-header {
+    background-color: #111827; // Noir profond
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px 6px 0 0;
+
+    .header-info {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+  }
+}
+
+// --- BARRE D'ACTION (BAS) ---
+.action-bar {
+  position: sticky;
+  bottom: 0;
+  background-color: #0f172a; 
+  color: white;
+  z-index: 1030;
+  margin-top: auto;
+  border-top: 2px solid #1e293b;
+  
+  .action-label {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+  }
+}

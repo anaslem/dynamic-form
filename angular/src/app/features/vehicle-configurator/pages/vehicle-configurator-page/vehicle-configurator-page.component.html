@@ -1,0 +1,214 @@
+@if (store.isInitialLoading()) {
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+} 
+@else if (store.vehicle(); as vehicle) {
+  
+  <div class="flex-grow-1">
+    <div class="container-fluid pb-4 pt-3 px-lg-4">
+      <div class="row">
+        
+        <!-- ========================================== -->
+        <!-- ZONE GAUCHE : RÉSUMÉ DU VÉHICULE           -->
+        <!-- ========================================== -->
+        <div class="col-lg-5 pe-lg-4 position-relative">
+          <div class="sticky-top" style="top: 1rem; z-index: 10;">
+            
+            <!-- En-tête : Badge et Titres -->
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <span class="badge bg-dark text-white rounded-pill px-3 py-1 mb-2">Estimation</span>
+                <h2 class="fw-bold mb-0 text-dark fs-5">{{ vehicle.brand }} · {{ vehicle.model }} · {{ vehicle.engine }}</h2>
+                <p class="text-muted" style="font-size: 0.75rem;">Modèle 1192215 · Demande 4280120 · Diesel · Automatique</p>
+              </div>
+              <div class="status-badge mt-1">Configuration en cours</div>
+            </div>
+
+            <!-- Les 3 Prix -->
+            <div class="row g-2 mb-4">
+              <div class="col-4">
+                <div class="price-box">
+                  <div class="label">Prix catalogue TTC</div>
+                  <div class="value">60 900,00 €</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="price-box">
+                  <div class="label">Valeur investie</div>
+                  <div class="value">46 466,58 € TTC</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="price-box" style="background-color: #f3f4f6;">
+                  <div class="label">TCO mensuel</div>
+                  <div class="value text-dark">1 691,56 € TTC</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Image + Specs + Étiquette Énergie -->
+            <div class="row align-items-center mb-4">
+              <div class="col-6 text-center">
+                <!-- Remplace par la vraie URL de ton image -->
+                <img [src]="vehicle.imageUrl" alt="Véhicule" class="img-fluid" style="max-height: 140px;">
+              </div>
+              <div class="col-6">
+                <div class="specs-list mb-3">
+                  <div class="d-flex justify-content-between"><span>Consommation</span> <span class="spec-val">5,1 L/100 km</span></div>
+                  <div class="d-flex justify-content-between"><span>Boîte de vitesses</span> <span class="spec-val">Automatique</span></div>
+                  <div class="d-flex justify-content-between"><span>Nombre de places</span> <span class="spec-val">5</span></div>
+                  <div class="d-flex justify-content-between"><span>Motorisation</span> <span class="spec-val">Diesel</span></div>
+                </div>
+                <!-- Simili étiquette CO2 -->
+                <div class="bg-success text-white text-center rounded py-1 fw-bold" style="font-size: 0.75rem; width: 80%;">
+                  138 g CO2/km
+                </div>
+              </div>
+            </div>
+
+            <!-- Boutons de vue -->
+            <div class="view-btn-group mb-4">
+              <button class="btn active">Avant</button>
+              <button class="btn">Face</button>
+              <button class="btn">Arrière</button>
+              <button class="btn">Profil</button>
+              <button class="btn">Habitacle</button>
+              <button class="btn">Cockpit</button>
+            </div>
+
+            <!-- Résumé Configuration -->
+            <div>
+              <h6 class="fw-bold mb-3 fs-6">Votre configuration</h6>
+              <div class="config-list-item">
+                <span>Durée / kilométrage</span>
+                <span class="val">{{ store.durationMonths() || '36' }} mois - {{ store.mileageKm() || '80 000' }} km</span>
+              </div>
+              <div class="config-list-item">
+                <span>Couleur extérieure</span>
+                <span class="val">Rouge Alfa pastel</span>
+              </div>
+              <div class="config-list-item">
+                <span>Options sélectionnées</span>
+                <span class="val">{{ store.selectedOptionIds().length }} pack</span>
+              </div>
+              <div class="config-list-item">
+                <span>Maintenance tous réseaux - Gestion des pertes totales</span>
+                <span class="val">24 %</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- ZONE DROITE : CONFIGURATEUR                -->
+        <!-- ========================================== -->
+        <div class="col-lg-7 ps-lg-4">
+          
+          <div class="d-flex justify-content-between align-items-end mb-3 mt-2">
+            <h4 class="fw-bold text-dark mb-0 fs-5">Votre configurateur</h4>
+            <span class="text-muted" style="font-size: 0.7rem;">Modifications appliquées au recalcul</span>
+          </div>
+
+          <!-- SECTION 1 : Durée & Kilométrage -->
+          <div class="config-section shadow-sm">
+            <div class="config-section-header">
+              <span>Durée et kilométrage</span>
+              <span class="header-info text-white cursor-pointer">
+                {{ store.durationMonths() || '36' }} mois - {{ store.mileageKm() || '80 000' }} km <i class="fa fa-chevron-down ms-2"></i>
+              </span>
+            </div>
+            
+            <!-- Note : Dans la capture, c'est un bloc complexe avec des boutons +/-, 
+                 mais on intègre ici tes DynamicSelect comme convenu -->
+            <div class="p-4 bg-light text-center border-bottom row g-3">
+              <div class="col-6">
+                @if (store.durationConfig(); as durationConfig) {
+                  <p class="text-muted m-0"><i>(DynamicSelect Durée)</i></p>
+                }
+              </div>
+              <div class="col-6">
+                @if (store.mileageConfig(); as mileageConfig) {
+                  <p class="text-muted m-0"><i>(DynamicSelect Kilométrage)</i></p>
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 2 : Couleurs -->
+          <div class="config-section shadow-sm">
+            <div class="config-section-header">
+              <span>Couleurs</span>
+              <span class="header-info text-white">Extérieure • Intérieure <i class="fa fa-chevron-down ms-2"></i></span>
+            </div>
+            <div class="p-3 bg-light"> 
+              <div class="mb-3">
+                @if (store.exteriorColorConfig(); as extColorConfig) {
+                  <div class="p-3 bg-white text-muted border rounded"><i>(DynamicSelect Couleur Extérieure)</i></div>
+                }
+              </div>
+              <div class="text-end">
+                <button class="btn btn-dark rounded-pill px-4" style="font-size: 0.75rem; font-weight: 600;">Valider les couleurs</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 3 : Options -->
+          <div class="config-section shadow-sm mb-5">
+            <div class="config-section-header">
+              <span>Options</span>
+              <span class="badge bg-transparent border border-secondary text-white rounded-pill px-3">{{  store.selectedOptionIds().length }} sélectionné(s)</span>
+            </div>
+            <div class="p-0">
+              <app-options-selector
+                [groupedOptions]="store.groupedOptions()"
+                [selectedOptionIds]="store.selectedOptionIds()"
+                (optionToggled)="store.toggleOption($event)">
+              </app-options-selector>
+            </div>
+          </div>
+
+        </div> 
+      </div> 
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ACTION BAR (Basée exactement sur l'image)  -->
+  <!-- ========================================== -->
+  <div class="action-bar p-3 d-flex justify-content-between align-items-center">
+    
+    <!-- Bloc Gauche : Loyer -->
+    <div class="ms-lg-4">
+      <div class="action-label">Votre loyer mensuel estimé</div>
+      @if (store.pricing(); as pricing) {
+        <h4 class="mb-0 fw-bold">{{ pricing.tcoMonthly | number:'1.2-2' }} € <small class="fw-normal text-muted fs-6">TTC / mois</small></h4>
+      } @else {
+        <h4 class="mb-0 placeholder-glow"><span class="placeholder col-6"></span></h4>
+      }
+    </div>
+    
+    <!-- Bloc Central : Durée/Km -->
+    <div class="text-center d-none d-md-block border-start border-secondary ps-4">
+      <div class="action-label">Durée / Kilométrage</div>
+      <div class="fw-bold fs-6">{{ store.durationMonths() || '36' }} mois - {{ store.mileageKm() || '80 000' }} km</div>
+    </div>
+
+    <!-- Bloc Droit : Boutons -->
+    <div class="me-lg-4 d-flex align-items-center gap-3">
+      <button class="btn btn-outline-warning rounded-pill px-3 text-warning" style="font-size: 0.75rem; font-weight: 600;">
+        À recalculer
+      </button>
+      
+      <button class="btn btn-light rounded-pill px-5 fw-bold text-dark" [disabled]="store.isCalculating()">
+        @if (store.isCalculating()) {
+          <span class="spinner-border spinner-border-sm me-2"></span> Calcul...
+        } @else {
+          Enregistrer
+        }
+      </button>
+    </div>
+  </div>
+
+}

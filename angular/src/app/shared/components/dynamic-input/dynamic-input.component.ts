@@ -126,7 +126,7 @@ export class DynamicInputComponent implements ControlValueAccessor, Validator {
         const parsedVal = this.safeConfig().valueType !== DynamicInputValueType.Text ? Number(defVal) : defVal;
         this.value.set(parsedVal);
         // On avertit discrètement Angular que la valeur a changé pour qu'il mette à jour le ngModel parent
-        setTimeout(() => this.onChange(parsedVal));
+        // setTimeout(() => this.onChange(parsedVal));
         return;
       }
     }

@@ -1,0 +1,39 @@
+.options-search-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  
+  input {
+    border: none;
+    box-shadow: none;
+    &:focus { outline: none; }
+  }
+}
+
+.option-category-header {
+  background-color: #f3f4f6; // Le gris clair de la maquette
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.option-item {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: #f9fafb;
+  }
+  
+  .form-check-input {
+    border-color: #cbd5e1;
+    &:checked {
+      background-color: #3b82f6; // Bleu de sélection
+      border-color: #3b82f6;
+    }
+  }
+}

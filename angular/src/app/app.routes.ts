@@ -7,6 +7,11 @@ export const APP_ROUTES: Routes = [
     loadComponent: () => import('./test-select/test-select.component').then(c => c.TestSelectComponent),
   },
   {
+    path: 'configurator',
+    pathMatch: 'full',
+    loadComponent: () => import('./features/vehicle-configurator/pages/vehicle-configurator-page/vehicle-configurator-page.component').then(c => c.VehicleConfiguratorPageComponent),
+  },
+  {
     path: 'account',
     loadChildren: () => import('@abp/ng.account').then(c => c.createRoutes()),
   },

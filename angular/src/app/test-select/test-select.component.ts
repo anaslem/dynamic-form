@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { DynamicSelectComponent } from '../shared/components/dynamic-select/dynamic-select.component';
 
 // TODO: Ajuste le chemin d'import selon la génération de tes proxys
-import type { DynamicSelectConfigurationDto } from '../proxy/dynamic-components/models';import { Component } from '@angular/core';
+import type { DynamicInputConfigurationDto, DynamicSelectConfigurationDto } from '../proxy/dynamic-components/models';import { Component, OnInit } from '@angular/core';
 import { DynamicInputValueType } from '../proxy/enums';
 import { DynamicInputComponent } from '../shared/components/dynamic-input/dynamic-input.component';
 
@@ -13,7 +13,7 @@ import { DynamicInputComponent } from '../shared/components/dynamic-input/dynami
   imports: [CommonModule, FormsModule, DynamicSelectComponent, DynamicInputComponent],
   templateUrl: './test-select.component.html'
 })
-export class TestSelectComponent {
+export class TestSelectComponent implements OnInit {
   
   // ==========================================
   // SCÉNARIO 1 : Dropdown Simple (Single Select)
@@ -124,6 +124,62 @@ export class TestSelectComponent {
   valeur5: string = '1';
 
 
+  // 1. La liste reçue (simulant le retour de l'API)
+  apiInputConfigurations: DynamicInputConfigurationDto[] = [
+    {
+      dynamicComponentType: 3,
+      name: 'firstName', // <-- Très important : c'est la clé de notre donnée
+      valueType: DynamicInputValueType.Text,
+      label: 'Prénom',
+      defaultValue: 'Jean',
+      isDisplayed: true
+    },
+    {
+      dynamicComponentType: 3,
+      name: 'age',
+      valueType: DynamicInputValueType.Integer,
+      label: 'Âge',
+      defaultValue: '30', // String depuis l'API
+      isDisplayed: true
+    },
+    {
+      dynamicComponentType: 3,
+      name: 'salary',
+      valueType: DynamicInputValueType.Decimal,
+      label: 'Salaire',
+      suffix: 'MAD',
+      defaultValue: '', // Pas de valeur par défaut
+      isDisplayed: true
+    }
+  ];
+
+  // 2. L'objet qui va stocker TOUTES les valeurs du formulaire
+  formData: Record<string, any> = {};
+
+  ngOnInit() {
+    // 3. Initialisation dynamique des valeurs par défaut
+    this.apiInputConfigurations.forEach(config => {
+      
+      let initialValue: any = null;
+      const defVal = config.defaultValue;
+
+      if (defVal != null && defVal !== '') {
+        // La fameuse conversion selon le type
+        if (config.valueType === DynamicInputValueType.Integer || config.valueType === DynamicInputValueType.Decimal) {
+          initialValue = Number(defVal);
+        } else {
+          initialValue = defVal;
+        }
+      }
+
+      // On affecte la valeur au dictionnaire en utilisant le "name" comme clé
+      if (config.name) {
+        this.formData[config.name] = initialValue;
+      }
+    });
+  }
+
+
   // Scénario 1 : Texte simple avec Default Value
   configInputText = {
     dynamicComponentType: 3, // Input
@@ -134,7 +190,7 @@ export class TestSelectComponent {
     required: true,
     defaultValue: 'Projet Alpha'
   };
-  valeurInputText: string = ''; // Sera écrasé par le defaultValue au init
+  valeurInputText: string = 'Projet Alpha'; // Sera écrasé par le defaultValue au init
 
   // Scénario 2 : Décimal avec Suffixe (Prefix) et Min/Max
   configInputDecimal = {
@@ -155,7 +211,7 @@ export class TestSelectComponent {
     disabled: true,
     defaultValue: '30'
   };
-  valeurInputInteger: number | null = null;
+  valeurInputInteger: number | null = 30; // Valeur par défaut affichée mais non modifiable
 
   // Scénario 4 : Code Postal (Regex, MinLength, Clearable)
   configInputPostal = {
@@ -170,4 +226,8 @@ export class TestSelectComponent {
     regexPattern: '^[0-9]{5}$' // Autorise uniquement 5 chiffres
   };
   valeurInputPostal: string | null = null;
+
+  onLogChange(nouvelleValeur: any) {
+    console.log(`[Modification] `, nouvelleValeur);
+  }
 }
