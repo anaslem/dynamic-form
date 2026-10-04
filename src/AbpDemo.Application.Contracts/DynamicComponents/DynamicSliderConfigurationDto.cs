@@ -1,5 +1,6 @@
 ﻿using AbpDemo.DynamicComponents.Common;
 using AbpDemo.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,8 @@ public class DynamicSliderConfigurationDto : ADynamicConfigurationDto
     /// <summary>
     /// Dynamic component type.
     /// </summary>
-    public override DynamicComponentType DynamicComponentType => DynamicComponentType.Slider;
+    [JsonProperty("componentType")]
+    public override DynamicComponentType ComponentType => DynamicComponentType.Slider;
 
     /// <summary>
     /// Step value used to increment slider values.

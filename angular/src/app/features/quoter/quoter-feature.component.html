@@ -1,0 +1,59 @@
+<!-- HEADER EXACT -->
+    <header class="top">
+      <div>Concession</div><div>Client</div><div>Véhicule</div><div class="active">Configuration</div>
+    </header>
+
+    <main class="work">
+      <!-- ZONE GAUCHE (VEHICULE) -->
+      <section class="vehicle">
+        <app-vehicle-summary 
+          [vehicle]="store.vehicle()"
+          [pricing]="store.pricing()">
+        </app-vehicle-summary>
+      </section>
+
+      <!-- ZONE DROITE (CONFIGURATEUR) -->
+      <aside class="config">
+        <div class="config-title">
+          <h1>Votre configurateur</h1>
+          <span class="progress-text">Modifications appliquées au recalcul</span>
+        </div>
+
+        <!-- ACCORDÉON DURÉE (Utilisation de ton HTML exact) -->
+        <div class="section" [class.open]="openSections()['duration']">
+          <button class="section-head" (click)="toggleSection('duration')">
+            <span>Durée et kilométrage</span>
+            <span class="summary-value">{{ store.contractDisplay() }}</span>
+            <b>⌃</b>
+          </button>
+          <div class="section-body p-0">
+            <app-duration-editor 
+              [contract]="store.config.contract()"
+              (contractChanged)="store.updateContract($event.months, $event.kilometers)">
+            </app-duration-editor>
+          </div>
+        </div>
+
+        <!-- Exemple d'un autre accordéon reprenant ton HTML -->
+        <div class="section" [class.open]="openSections()['colors']">
+          <button class="section-head" (click)="toggleSection('colors')">
+            <span>Couleurs</span><span class="count">Extérieure + intérieure</span><b>⌃</b>
+          </button>
+          <div class="section-body">
+            <div class="field">
+              <label>Couleur extérieure</label>
+              <select><option>Rouge Alfa pastel</option></select>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- FOOTER EXACT -->
+    <app-configurator-footer
+      [rent]="store.pricing()?.monthlyRent || 0"
+      [contractDisplay]="store.contractDisplay()"
+      [isDirty]="store.isDirty()"
+      [isLoading]="store.isLoading()"
+      (recalculate)="store.recalculatePrice()">
+    </app-configurator-footer>

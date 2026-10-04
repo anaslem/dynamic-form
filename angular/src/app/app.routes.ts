@@ -37,4 +37,12 @@ export const APP_ROUTES: Routes = [
     loadComponent: () => import('./author/author.component').then(c => c.AuthorComponent),
     canActivate: [authGuard, permissionGuard],
   },
+  {
+    path: 'quoter',
+    loadComponent: () => import('./features/quoter/quoter-feature.component').then(m => m.QuoterFeatureComponent)
+  },
+  {
+    path: 'configuratorapp',
+    loadComponent: () => import('./features/vehicle-configurator-app/vehicle-configurator.component').then(m => m.VehicleConfiguratorComponent)
+  }
 ];

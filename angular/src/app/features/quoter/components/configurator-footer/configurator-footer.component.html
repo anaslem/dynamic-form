@@ -1,0 +1,27 @@
+<footer class="footer-price-bottom">
+  <div class="bottom-price-integrated">
+
+    <div class="price-main">
+      <span>Votre loyer mensuel estimé</span>
+      <strong>{{ rent() | number:'1.2-2' }} € <small>TTC / mois</small></strong>
+      @if(isDirty()) { <em>Le montant sera actualisé après recalcul</em> }
+    </div>
+
+    <div class="price-contract">
+      <span>Durée / kilométrage</span>
+      <strong>{{ contractDisplay() }}</strong>
+    </div>
+
+    @if(isDirty()) {
+    <span class="dirty">À recalculer</span>
+    } @else {
+    <span></span> <!-- Spacer pour la grid -->
+    }
+
+    <button class="save-configuration" [disabled]="isLoading() || !isDirty()" (click)="recalculate.emit()">
+      <span>Enregistrer</span>
+      <small>{{ isLoading() ? 'Calcul...' : 'Valider la configuration' }}</small>
+      <b aria-hidden="true">→</b>
+    </button>
+  </div>
+</footer>

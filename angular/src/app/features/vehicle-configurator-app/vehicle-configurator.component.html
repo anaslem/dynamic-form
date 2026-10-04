@@ -1,0 +1,65 @@
+<div class="configurator-container">
+  
+  @for (item of renderItems(); track item) {
+    
+    <!-- ============================================== -->
+    <!-- CAS 1 : LES OPTIONS ET ACCESSOIRES (Autonomes) -->
+    <!-- ============================================== -->
+    @if (item.type === 'standalone') {
+      <div class="standalone-section">
+        
+        <!-- On affiche le composant directement, SANS accordéon -->
+        @switch (item.component.componentType) {
+          @case (2) {
+            <app-dynamic-select 
+              [config]="$any(item.component)"
+              (valueChanged)="onValueChanged(item.component.id!, $event)">
+            </app-dynamic-select>
+          }
+          <!-- Ajoute les autres @case si tu as des inputs autonomes un jour -->
+        }
+      </div>
+    }
+
+    <!-- ============================================== -->
+    <!-- CAS 2 : LES PRESTATIONS (Accordéons groupés)   -->
+    <!-- ============================================== -->
+    @if (item.type === 'group') {
+      <div class="accordion-item">
+        
+        <!-- En-tête de l'accordéon (cliquable) -->
+        <div class="accordion-header" (click)="item.isOpen = !item.isOpen">
+          <h3>{{ item.name }}</h3>
+          <span>{{ item.isOpen ? '▼' : '▶' }}</span>
+        </div>
+
+        <!-- Contenu des prestations -->
+        @if (item.isOpen) {
+          <div class="accordion-body">
+            @for (comp of item.components; track comp.id) {
+              
+              @if (comp.isDisplayed) {
+                <div class="dynamic-field-wrapper">
+                  
+                  @switch (comp.componentType) {
+                    @case (4) {
+                      <!-- <app-dynamic-toggle [config]="$any(comp)" (valueChanged)="onValueChanged(comp.id!, $event)"></app-dynamic-toggle> -->
+                    }
+                    @case (2) {
+                      <app-dynamic-select [config]="$any(comp)" (valueChanged)="onValueChanged(comp.id!, $event)"></app-dynamic-select>
+                    }
+                    @case (1) {
+                      <app-dynamic-input [config]="$any(comp)" (valueChanged)="onValueChanged(comp.id!, $event)"></app-dynamic-input>
+                    }
+                  }
+
+                </div>
+              }
+            }
+          </div>
+        }
+
+      </div>
+    }
+  }
+</div>

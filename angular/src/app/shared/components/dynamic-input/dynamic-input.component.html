@@ -1,7 +1,9 @@
+<h1 class="text-danger">{{safeConfig().label}}</h1>
 @if (safeConfig().isDisplayed) {
   <div class="dynamic-input-wrapper mb-3" [class.disabled]="isDisabled() || safeConfig().disabled">
     
     <!-- Label -->
+     <h1 class="text-danger">{{safeConfig().label}}</h1>
     @if (safeConfig().label) {
       <label [for]="safeConfig().id" class="form-label">
         {{ safeConfig().label | abpLocalization }}

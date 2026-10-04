@@ -1,4 +1,5 @@
 ﻿using AbpDemo.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,4 +30,8 @@ public class DynamicFilterRuleDto
     /// Name of the property evaluated by the rule.
     /// </summary>
     public string PropertyName { get; set; }
+
+    // NOUVEAU : La valeur à comparer (ex: true, "0000543", etc.)
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public object TargetValue { get; set; }
 }

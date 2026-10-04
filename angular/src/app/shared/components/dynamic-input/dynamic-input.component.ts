@@ -3,6 +3,7 @@ import {
   computed,
   forwardRef,
   input,
+  output,
   signal
 } from '@angular/core';
 import { 
@@ -43,6 +44,7 @@ import { DynamicInputValueType } from '../../../proxy/enums/dynamic-input-value-
 })
 export class DynamicInputComponent implements ControlValueAccessor, Validator {
   config = input.required<DynamicInputConfigurationDto>();
+  valueChanged = output<string | number | null>();
 
   value = signal<string | number | null>(null);
   isDisabled = signal<boolean>(false);
@@ -108,6 +110,7 @@ export class DynamicInputComponent implements ControlValueAccessor, Validator {
   private updateValue(newValue: string | number | null) {
     this.value.set(newValue);
     this.onChange(newValue);
+    this.valueChanged.emit(newValue);
   }
 
   clearValue(event?: Event) {

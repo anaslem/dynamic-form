@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Nodes;
+﻿using Newtonsoft.Json;
 
 namespace AbpDemo.DynamicComponents.Common;
 
@@ -11,42 +8,39 @@ namespace AbpDemo.DynamicComponents.Common;
 public class DynamicOptionDto
 {
     /// <summary>
-    /// Unique identifier of the option.
+    /// Identifiant déterministe (ex: "opt_gps_premium").
     /// </summary>
     public string Id { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Parent identifier for hierarchical option structures.
-    /// </summary>
     public string ParentId { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Main label or value displayed.
-    /// </summary>
     public string Value { get; set; } = string.Empty;
 
-    /// <summary>
-    /// Additional value displayed as a suffix.
-    /// </summary>
-    public string SuffixValue { get; set; } = string.Empty;
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string SuffixValue { get; set; }
 
-    /// <summary>
-    /// Visual indicator associated with the option.
-    /// </summary>
-    public string Indicator { get; set; } = string.Empty;
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string Indicator { get; set; }
 
-    /// <summary>
-    /// Indicates whether the option is disabled.
-    /// </summary>
     public bool Disabled { get; set; } = false;
 
     /// <summary>
-    /// Indicates whether the option is selected.
+    /// Explique à l'utilisateur pourquoi l'option est grisée (ex: "Incompatible avec Pack Sport").
     /// </summary>
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string DisabledReason { get; set; }
+
     public bool IsSelected { get; set; }
 
     /// <summary>
-    /// Raw business value originating from the AS400 system.
+    /// Référence technique pour faire le lien avec l'ERP/AS400 côté backend (sans polluer le frontend).
     /// </summary>
-    public object As400Value { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string ExternalReferenceId { get; set; }
+
+    /// <summary>
+    /// Impact financier de cette option.
+    /// </summary>
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public DynamicPriceDto PriceInfo { get; set; }
 }

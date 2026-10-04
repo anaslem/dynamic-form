@@ -1,5 +1,6 @@
 ﻿using AbpDemo.DynamicComponents.Common;
 using AbpDemo.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,8 @@ public class DynamicInputConfigurationDto : ADynamicConfigurationDto
     /// <summary>
     /// Dynamic component type.
     /// </summary>
-    public override DynamicComponentType DynamicComponentType => DynamicComponentType.Input;
+    [JsonProperty("componentType")]
+    public override DynamicComponentType ComponentType => DynamicComponentType.Input;
 
     /// <summary>
     /// Placeholder text shown when the value is empty.

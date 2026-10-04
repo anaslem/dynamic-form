@@ -1,0 +1,40 @@
+@if (vehicle(); as v) {
+      <div class="eyebrow">
+        <span class="pill">Estimation</span>
+        <span class="state">● Configuration en cours</span>
+      </div>
+      <div class="vehicle-title-row">
+        <h1 class="title">{{ v.brand }} · {{ v.model }} · {{ v.version }}</h1>
+      </div>
+      <div class="sub">Modèle {{ v.internalRef }} · Demande {{ v.demandRef }} · {{ v.energy }} · {{ v.transmission }}</div>
+      
+      <div class="stats">
+        <div class="stat"><span>Prix catalogue TTC</span><strong>{{ v.catalogPrice | number }} €</strong></div>
+        <div class="stat"><span>Valeur investie</span><strong>{{ pricing()?.investedValue | number }} € TTC</strong></div>
+        <div class="stat"><span>TCO mensuel</span><strong>{{ pricing()?.tco | number }} € TTC</strong></div>
+      </div>
+
+      <div class="hero">
+        <div class="car">
+          <!-- TON SVG EXACT -->
+          <svg viewBox="0 0 900 360"><defs><linearGradient id="r"><stop stop-color="#8e1118"/><stop offset=".5" stop-color="#ef3238"/><stop offset="1" stop-color="#770f16"/></linearGradient></defs><ellipse cx="450" cy="300" rx="330" ry="35" fill="#c7d2d7"/><path d="M145 260Q165 178 290 160L392 88Q425 66 530 77L665 160Q747 171 782 226L794 268L725 279Q706 219 650 219Q594 219 576 281H320Q305 219 247 219Q190 219 175 278L118 271Z" fill="url(#r)" stroke="#4b1115" stroke-width="7"/><path d="M320 158L410 92Q437 81 493 83L556 91L642 158Z" fill="#153544"/><circle cx="246" cy="270" r="60" fill="#17242b"/><circle cx="246" cy="270" r="31" fill="#b8c1c6"/><circle cx="648" cy="270" r="60" fill="#17242b"/><circle cx="648" cy="270" r="31" fill="#b8c1c6"/></svg>
+        </div>
+        <div class="specs">
+          <span>Consommation</span><strong>{{ v.consumption }}</strong>
+          <span>Boîte de vitesses</span><strong>{{ v.transmission }}</strong>
+          <span>Nombre de places</span><strong>{{ v.seats }}</strong>
+          <span>Motorisation</span><strong>{{ v.energy }}</strong>
+        </div>
+      </div>
+
+      <div class="thumbs">
+        <div class="thumb active">Avant</div><div class="thumb">Face</div>
+        <div class="thumb">Arrière</div><div class="thumb">Profil</div>
+        <div class="thumb">Habitacle</div><div class="thumb">Cockpit</div>
+      </div>
+      
+      <div class="selection">
+        <h2>Votre configuration</h2>
+        <div class="selrow"><span>Prestations incluses</span><strong>Maintenance tous réseaux</strong></div>
+      </div>
+    }

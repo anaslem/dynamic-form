@@ -4,7 +4,7 @@ import type { DynamicInputValueType } from '../enums/dynamic-input-value-type.en
 import type { DataSourceType } from '../enums/data-source-type.enum';
 
 export interface DynamicInputConfigurationDto extends ADynamicConfigurationDto {
-  dynamicComponentType?: DynamicComponentType;
+  componentType?: DynamicComponentType;
   placeholder?: string;
   indicator?: string;
   valueType?: DynamicInputValueType;
@@ -19,7 +19,7 @@ export interface DynamicInputConfigurationDto extends ADynamicConfigurationDto {
 }
 
 export interface DynamicSelectConfigurationDto extends ADynamicConfigurationDto {
-  dynamicComponentType?: DynamicComponentType;
+  componentType?: DynamicComponentType;
   isDropDownDisplay?: boolean;
   placeholder?: string;
   isMultiSelect?: boolean;
@@ -34,7 +34,7 @@ export interface DynamicSelectConfigurationDto extends ADynamicConfigurationDto 
 }
 
 export interface DynamicSliderConfigurationDto extends ADynamicConfigurationDto {
-  dynamicComponentType?: DynamicComponentType;
+  componentType?: DynamicComponentType;
   step?: number;
   range?: DynamicRangeValueDto;
   value?: number;

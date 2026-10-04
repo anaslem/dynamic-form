@@ -1,0 +1,24 @@
+<div class="contract-editor">
+  <div>
+    <!-- Espace pour preset si besoin -->
+  </div>
+  <div class="contract-controls">
+
+    <div class="control-row">
+      <button class="round large" (click)="updateMonths(-3)">−</button>
+      <span class="control-label">mois</span>
+      <button class="round large" (click)="updateMonths(3)">+</button>
+    </div>
+
+    <div class="control-row">
+      <button class="round large" (click)="updateKms(-5000)">−</button>
+      <span class="control-label">kilométrage</span>
+      <button class="round large" (click)="updateKms(5000)">+</button>
+    </div>
+
+    <div class="control-values">
+      <span><strong>{{ contract().months }}</strong> mois</span>
+      <span><strong>{{ contract().kilometers | number }}</strong> km</span>
+    </div>
+  </div>
+</div>

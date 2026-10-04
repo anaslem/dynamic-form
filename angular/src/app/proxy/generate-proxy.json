@@ -2535,6 +2535,106 @@
             }
           }
         },
+        "AbpDemo.DynamicComponents.VehicleConfiguratorAppService": {
+          "controllerName": "VehicleConfigurator",
+          "controllerGroupName": "VehicleConfigurator",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "AbpDemo.DynamicComponents.VehicleConfiguratorAppService",
+          "summary": null,
+          "remarks": null,
+          "description": null,
+          "displayName": null,
+          "interfaces": [
+            {
+              "type": "AbpDemo.DynamicComponents.IVehicleConfiguratorAppService",
+              "name": "IVehicleConfiguratorAppService",
+              "methods": [
+                {
+                  "name": "GetConfigurationFormAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "vehicleId",
+                      "typeAsString": "System.Int64, System.Private.CoreLib",
+                      "type": "System.Int64",
+                      "typeSimple": "number",
+                      "isOptional": false,
+                      "defaultValue": null,
+                      "summary": null,
+                      "description": null,
+                      "displayName": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.IReadOnlyList<AbpDemo.DynamicComponents.Common.ADynamicConfigurationDto>",
+                    "typeSimple": "[AbpDemo.DynamicComponents.Common.ADynamicConfigurationDto]",
+                    "summary": null,
+                    "contentTypes": null,
+                    "isRemoteStream": false
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetConfigurationFormAsyncByVehicleId": {
+              "uniqueName": "GetConfigurationFormAsyncByVehicleId",
+              "name": "GetConfigurationFormAsync",
+              "httpMethod": "GET",
+              "url": "api/app/vehicle-configurator/configuration-form/{vehicleId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "vehicleId",
+                  "typeAsString": "System.Int64, System.Private.CoreLib",
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "vehicleId",
+                  "name": "vehicleId",
+                  "jsonName": null,
+                  "type": "System.Int64",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": "",
+                  "summary": null,
+                  "description": null,
+                  "displayName": null
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.IReadOnlyList<AbpDemo.DynamicComponents.Common.ADynamicConfigurationDto>",
+                "typeSimple": "[AbpDemo.DynamicComponents.Common.ADynamicConfigurationDto]",
+                "summary": null,
+                "contentTypes": [
+                  "text/plain",
+                  "application/json",
+                  "text/json"
+                ],
+                "isRemoteStream": false
+              },
+              "allowAnonymous": null,
+              "authorizeDatas": [],
+              "implementFrom": "AbpDemo.DynamicComponents.IVehicleConfiguratorAppService",
+              "summary": null,
+              "remarks": null,
+              "description": null,
+              "displayName": null
+            }
+          }
+        },
         "AbpDemo.DynamicComponentsPreview.DynamicComponentPreviewAppService": {
           "controllerName": "DynamicComponentPreview",
           "controllerGroupName": "DynamicComponentPreview",
@@ -7988,7 +8088,7 @@
       "genericArguments": null,
       "properties": [
         {
-          "name": "DynamicComponentType",
+          "name": "ComponentType",
           "jsonName": null,
           "type": "AbpDemo.Enums.DynamicComponentType",
           "typeSimple": "enum",
@@ -8021,6 +8121,22 @@
         },
         {
           "name": "Name",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "GroupName",
           "jsonName": null,
           "type": "System.String",
           "typeSimple": "string",
@@ -8268,6 +8384,22 @@
           "summary": null,
           "description": null,
           "displayName": null
+        },
+        {
+          "name": "TargetValue",
+          "jsonName": null,
+          "type": "System.Object",
+          "typeSimple": "object",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
         }
       ],
       "summary": null,
@@ -8379,6 +8511,22 @@
           "displayName": null
         },
         {
+          "name": "DisabledReason",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
           "name": "IsSelected",
           "jsonName": null,
           "type": "System.Boolean",
@@ -8395,10 +8543,87 @@
           "displayName": null
         },
         {
-          "name": "As400Value",
+          "name": "ExternalReferenceId",
           "jsonName": null,
-          "type": "System.Object",
-          "typeSimple": "object",
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "PriceInfo",
+          "jsonName": null,
+          "type": "AbpDemo.DynamicComponents.Common.DynamicPriceDto",
+          "typeSimple": "AbpDemo.DynamicComponents.Common.DynamicPriceDto",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        }
+      ],
+      "summary": null,
+      "remarks": null,
+      "description": null,
+      "displayName": null
+    },
+    "AbpDemo.DynamicComponents.Common.DynamicPriceDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "Amount",
+          "jsonName": null,
+          "type": "System.Decimal?",
+          "typeSimple": "number?",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": true,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "Currency",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null,
+          "isNullable": false,
+          "summary": null,
+          "description": null,
+          "displayName": null
+        },
+        {
+          "name": "FormattedDisplay",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
@@ -8469,7 +8694,7 @@
       "genericArguments": null,
       "properties": [
         {
-          "name": "DynamicComponentType",
+          "name": "ComponentType",
           "jsonName": null,
           "type": "AbpDemo.Enums.DynamicComponentType",
           "typeSimple": "enum",
@@ -8674,7 +8899,7 @@
       "genericArguments": null,
       "properties": [
         {
-          "name": "DynamicComponentType",
+          "name": "ComponentType",
           "jsonName": null,
           "type": "AbpDemo.Enums.DynamicComponentType",
           "typeSimple": "enum",
@@ -8879,7 +9104,7 @@
       "genericArguments": null,
       "properties": [
         {
-          "name": "DynamicComponentType",
+          "name": "ComponentType",
           "jsonName": null,
           "type": "AbpDemo.Enums.DynamicComponentType",
           "typeSimple": "enum",
@@ -9036,12 +9261,14 @@
       "enumNames": [
         "Select",
         "Slider",
-        "Input"
+        "Input",
+        "Toggle"
       ],
       "enumValues": [
         1,
         2,
-        3
+        3,
+        4
       ],
       "genericArguments": null,
       "properties": null,
@@ -9054,11 +9281,13 @@
       "baseType": "System.Enum",
       "isEnum": true,
       "enumNames": [
-        "RenderDisplay",
-        "Display",
-        "Delete"
+        "Show",
+        "Hide",
+        "Disable",
+        "Enable"
       ],
       "enumValues": [
+        0,
         1,
         2,
         3
@@ -9074,12 +9303,16 @@
       "baseType": "System.Enum",
       "isEnum": true,
       "enumNames": [
-        "Contains",
-        "In"
+        "Equals",
+        "NotEquals",
+        "GreaterThan",
+        "LessThan"
       ],
       "enumValues": [
+        0,
         1,
-        2
+        2,
+        3
       ],
       "genericArguments": null,
       "properties": null,

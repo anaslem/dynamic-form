@@ -1,0 +1,156 @@
+:host {
+  /* Variables mappées sur l'écosystème ABP/Bootstrap pour supporter le thème dynamique */
+  --navy: var(--bs-primary);
+  --navy2: var(--bs-primary-text-emphasis);
+  --cyan: var(--bs-primary-bg-subtle);
+  --bg: var(--bs-body-bg);
+  --line: var(--bs-border-color);
+  --text: var(--bs-body-color);
+  --muted: var(--bs-secondary-color);
+  --green: var(--bs-success);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --surface: var(--bs-body-bg); /* Remplace le #fff en dur */
+  --surface-alt: var(--bs-tertiary-bg); /* Remplace les gris clairs en dur */
+
+  display: block;
+  font-family:
+    Segoe UI,
+    Arial,
+    sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* TON CSS EXACT ADAPTÉ AU THÈME */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+.top {
+  height: 42px;
+  background: var(--navy2);
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.top div {
+  display: grid;
+  place-items: center;
+  border-bottom: 3px solid transparent;
+}
+.top .active {
+  border-color: #fff;
+}
+.work {
+  height: calc(100vh - 130px);
+  display: grid;
+  grid-template-columns: minmax(460px, 58%) minmax(430px, 42%);
+  gap: 0;
+}
+.vehicle {
+  padding: 20px 26px;
+  overflow: auto;
+  background: white;
+  border-right: 1px solid var(--line);
+}
+.config {
+  background: white;
+  overflow-y: auto;
+  padding: 14px 16px 110px;
+  scrollbar-color: var(--muted) transparent;
+}
+.config-title {
+  position: sticky;
+  top: -14px;
+  z-index: 5;
+  background: var(--bg);
+  padding: 5px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.config-title h1 {
+  font-size: 17px;
+  margin: 0;
+}
+.progress-text {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* Accordéons Custom (Tes classes exactes) */
+.section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 9px;
+  overflow: hidden;
+}
+.section-head {
+  width: 100%;
+  border: 0;
+  background: var(--navy2);
+  color: #fff;
+  padding: 11px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.section-head b {
+  transition: 0.2s;
+}
+.section-body {
+  padding: 12px;
+  display: none;
+}
+.section.open .section-body {
+  display: block;
+}
+.section.open .section-head b {
+  transform: rotate(180deg);
+}
+
+/* Inputs Custom */
+.field label {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.field select,
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 9px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 10px;
+}
+
+@media (max-width: 1000px) {
+  :host {
+    overflow: auto;
+    height: auto;
+  }
+  .work {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+  .vehicle,
+  .config {
+    overflow: visible;
+  }
+}

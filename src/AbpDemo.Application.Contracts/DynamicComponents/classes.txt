@@ -1,0 +1,427 @@
+﻿
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\DynamicInputConfigurationDto.cs ====================
+
+using AbpDemo.DynamicComponents.Common;
+using AbpDemo.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbpDemo.DynamicComponents;
+
+/// <summary>
+/// Configuration for a dynamic numeric input component.
+/// </summary>
+public class DynamicInputConfigurationDto : ADynamicConfigurationDto
+{
+    /// <summary>
+    /// Dynamic component type.
+    /// </summary>
+    public override DynamicComponentType DynamicComponentType => DynamicComponentType.Input;
+
+    /// <summary>
+    /// Placeholder text shown when the value is empty.
+    /// </summary>
+    public string Placeholder { get; set; } = "::GenericComponent:Input:DefaultPlaceholder";
+
+    /// <summary>
+    /// Indicator text shown for more information.
+    /// </summary>
+    public string Indicator { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Expected value type for the input.
+    /// </summary>
+    public DynamicInputValueType ValueType { get; set; } = DynamicInputValueType.Integer;
+
+    /// <summary>
+    /// Range allowed value.
+    /// </summary>
+    public DynamicRangeValueDto Range { get; set; }
+
+    /// <summary>
+    /// Increment step between values.
+    /// </summary>
+    public decimal? Step { get; set; }
+
+    /// <summary>
+    /// Initial value of the field.
+    /// </summary>
+    public string DefaultValue { get; set; }
+
+    // 1. Prefix renommé en Suffix !
+    public string Suffix { get; set; } = string.Empty;
+
+    public int? MaxLength { get; set; }
+
+    // 2. NOUVEAU : Longueur minimum
+    public int? MinLength { get; set; }
+
+    // 3. NOUVEAU : Expression régulière
+    public string RegexPattern { get; set; }
+
+    // 4. NOUVEAU : Bouton pour vider le champ
+    public bool IsClearable { get; set; } = false;
+}
+
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\DynamicSelectConfigurationDto.cs ====================
+
+using AbpDemo.DynamicComponents.Common;
+using AbpDemo.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbpDemo.DynamicComponents;
+
+/// <summary>
+/// Configuration for a dynamic selection component.
+/// </summary>
+public class DynamicSelectConfigurationDto : ADynamicConfigurationDto
+{
+    /// <summary>
+    /// Dynamic component type.
+    /// </summary>
+    public override DynamicComponentType DynamicComponentType => DynamicComponentType.Select;
+
+    /// <summary>
+    /// Indicate the display type. dropdown or list.
+    /// </summary>
+    public bool IsDropDownDisplay { get; set; } = true;
+
+    /// <summary>
+    /// Placeholder shown when no option is selected.
+    /// </summary>
+    public string Placeholder { get; set; } = "::GenericComponent:Select:DefaultPlaceholder";
+
+    /// <summary>
+    /// Indicates whether multiple selection is allowed.
+    /// </summary>
+    public bool IsMultiSelect { get; set; } = false;
+
+    /// <summary>
+    /// Maximum number of selectable items.
+    /// </summary>
+    public int? MaxSelectionLength { get; set; } = default;
+
+    /// <summary>
+    /// Message displayed when maximum selection length is reached.
+    /// </summary>
+    public string MessageWhenMaxSelectionLengthExceeded { get; set; } = "::GenericComponent:Select:DefaultMessageWhenMaxSelectionLengthExceeded";
+
+    /// <summary>
+    /// Indicates whether autocomplete should be enabled.
+    /// </summary>
+    public bool ShouldEnableAutocomplete { get; set; } = false;
+
+    /// <summary>
+    /// Indicates whether the selection can be cleared.
+    /// </summary>
+    public bool IsClearable { get; set; } = true;
+
+    /// <summary>
+    /// Source of the component options.
+    /// </summary>
+    public DataSourceType DataSourceType { get; set; }
+
+    /// <summary>
+    /// List of available static options.
+    /// </summary>
+    public IList<DynamicOptionDto> StaticItems { get; set; }
+
+    /// <summary>
+    /// API data source configuration.
+    /// </summary>
+    public ApiDataSourceDto ApiDataSourceDto { get; set; }
+
+    /// <summary>
+    /// Identifiers of options selected by default.
+    /// </summary>
+    public IList<string> DefaultValueIds { get; set; }
+}
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\DynamicSliderConfigurationDto.cs ====================
+
+using AbpDemo.DynamicComponents.Common;
+using AbpDemo.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbpDemo.DynamicComponents;
+
+/// <summary>
+/// Configuration for a dynamic slider component.
+/// </summary>
+public class DynamicSliderConfigurationDto : ADynamicConfigurationDto
+{
+    /// <summary>
+    /// Dynamic component type.
+    /// </summary>
+    public override DynamicComponentType DynamicComponentType => DynamicComponentType.Slider;
+
+    /// <summary>
+    /// Step value used to increment slider values.
+    /// </summary>
+    public decimal Step { get; set; } = default;
+
+    /// <summary>
+    /// Range allowed value.
+    /// </summary>
+    public DynamicRangeValueDto Range { get; set; } = default;
+
+    /// <summary>
+    /// Current slider value in single-value mode.
+    /// </summary>
+    public decimal Value { get; set; } = default;
+
+    /// <summary>
+    /// Indicates whether the slider uses range mode.
+    /// </summary>
+    public bool IsRange { get; set; }
+
+    /// <summary>
+    /// Selected minimum and maximum values in range mode.
+    /// </summary>
+    public DynamicRangeValueDto RangeValue { get; set; }
+
+    /// <summary>
+    /// Suffix displayed after the value.
+    /// </summary>
+    public string Suffix { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Prefix displayed before the value.
+    /// </summary>
+    public string Prefix { get; set; } = string.Empty;
+}
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\IDynamicComponentPreviewAppService.cs ====================
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+using Volo.Abp.Application.Services;
+
+namespace AbpDemo.DynamicComponents;
+
+public interface IDynamicComponentPreviewAppService : IApplicationService
+{
+    public Task<DynamicSelectConfigurationDto> GetSelectConfigAsync();
+}
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\Common\ADynamicConfigurationDto.cs ====================
+
+using AbpDemo.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json.Serialization;
+
+namespace AbpDemo.DynamicComponents.Common;
+
+/// <summary>
+/// Base class for dynamic component configurations.
+/// </summary>
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "componentType")]
+[JsonDerivedType(typeof(DynamicInputConfigurationDto), typeDiscriminator: "input")]
+[JsonDerivedType(typeof(DynamicSelectConfigurationDto), typeDiscriminator: "select")]
+[JsonDerivedType(typeof(DynamicSliderConfigurationDto), typeDiscriminator: "slider")]
+public abstract class ADynamicConfigurationDto
+{
+    /// <summary>
+    /// Concrete type of the dynamic component.
+    /// </summary>
+    public abstract DynamicComponentType DynamicComponentType { get; }
+
+    /// <summary>
+    /// Unique identifier of the configuration.
+    /// </summary>
+    public string Id { get; set; } = Guid.NewGuid().ToString();
+
+    /// <summary>
+    /// Technical name of the component.
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Indicates whether the component should be displayed.
+    /// </summary>
+    public bool IsDisplayed { get; set; } = true;
+
+    /// <summary>
+    /// Indicates whether the component is disabled.
+    /// </summary>
+    public bool Disabled { get; set; } = false;
+
+    /// <summary>
+    /// Indicates whether input is required for the component.
+    /// </summary>
+    public bool Required { get; set; } = false;
+
+    /// <summary>
+    /// Display order of the component.
+    /// </summary>
+    public int Order { get; set; } = default;
+
+    /// <summary>
+    /// Indicates whether the component should trigger change detection.
+    /// </summary>
+    public bool ShouldDetectChanges { get; set; } = false;
+
+    /// <summary>
+    /// Filter and behavior rules associated with the component.
+    /// </summary>
+    public IList<DynamicFilterRuleDto> FilterRules { get; set; }
+
+    /// <summary>
+    /// Label displayed for the field.
+    /// </summary>
+    public string Label { get; set; } = "::GenericComponent:Input:DefaultLabel";
+}
+
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\Common\ApiDataSourceDto.cs ====================
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbpDemo.DynamicComponents.Common;
+
+/// <summary>
+/// Describes the API source used to retrieve dynamic data.
+/// </summary>
+public class ApiDataSourceDto
+{
+    /// <summary>
+    /// Name of the application service to invoke.
+    /// </summary>
+    public string ServiceName { get; set; }
+
+    /// <summary>
+    /// Name of the method to call on the service.
+    /// </summary>
+    public string MethodName { get; set; }
+}
+
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\Common\DynamicFilterRuleDto.cs ====================
+
+using AbpDemo.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbpDemo.DynamicComponents.Common;
+
+/// <summary>
+/// Represents a filter rule applied to a dynamic component.
+/// </summary>
+public class DynamicFilterRuleDto
+{
+    /// <summary>
+    /// Identifier of the target component affected by the rule.
+    /// </summary>
+    public string TargetFilterId { get; set; }
+
+    /// <summary>
+    /// Action to apply when the rule is satisfied.
+    /// </summary>
+    public DynamicFilterRuleActionType ActionType { get; set; }
+
+    /// <summary>
+    /// Comparison operator used by the rule.
+    /// </summary>
+    public DynamicFilterRuleOperatorType OperatorType { get; set; }
+
+    /// <summary>
+    /// Name of the property evaluated by the rule.
+    /// </summary>
+    public string PropertyName { get; set; }
+}
+
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\Common\DynamicOptionDto.cs ====================
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json.Nodes;
+
+namespace AbpDemo.DynamicComponents.Common;
+
+/// <summary>
+/// Represents a selectable option in a dynamic component.
+/// </summary>
+public class DynamicOptionDto
+{
+    /// <summary>
+    /// Unique identifier of the option.
+    /// </summary>
+    public string Id { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Parent identifier for hierarchical option structures.
+    /// </summary>
+    public string ParentId { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Main label or value displayed.
+    /// </summary>
+    public string Value { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Additional value displayed as a suffix.
+    /// </summary>
+    public string SuffixValue { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Visual indicator associated with the option.
+    /// </summary>
+    public string Indicator { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Indicates whether the option is disabled.
+    /// </summary>
+    public bool Disabled { get; set; } = false;
+
+    /// <summary>
+    /// Indicates whether the option is selected.
+    /// </summary>
+    public bool IsSelected { get; set; }
+
+    /// <summary>
+    /// Raw business value originating from the AS400 system.
+    /// </summary>
+    public object As400Value { get; set; }
+}
+
+
+==================== C:\Users\anasl\Desktop\Anas\Abp\AbpDemo\src\AbpDemo.Application.Contracts\DynamicComponents\Common\DynamicRangeValueDto.cs ====================
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AbpDemo.DynamicComponents.Common
+{
+    /// <summary>
+    /// Represents a value range for a dynamic component.
+    /// </summary>
+    public class DynamicRangeValueDto
+    {
+        /// <summary>
+        /// Minimum value of the range.
+        /// </summary>
+        public decimal MinValue { get; set; } = decimal.MinValue;
+
+        /// <summary>
+        /// Maximum value of the range.
+        /// </summary>
+        public decimal MaxValue { get; set; } = decimal.MaxValue;
+    }
+}
+

@@ -127,7 +127,7 @@ export class TestSelectComponent implements OnInit {
   // 1. La liste reçue (simulant le retour de l'API)
   apiInputConfigurations: DynamicInputConfigurationDto[] = [
     {
-      dynamicComponentType: 3,
+      componentType: 3,
       name: 'firstName', // <-- Très important : c'est la clé de notre donnée
       valueType: DynamicInputValueType.Text,
       label: 'Prénom',
@@ -135,7 +135,7 @@ export class TestSelectComponent implements OnInit {
       isDisplayed: true
     },
     {
-      dynamicComponentType: 3,
+      componentType: 3,
       name: 'age',
       valueType: DynamicInputValueType.Integer,
       label: 'Âge',
@@ -143,7 +143,7 @@ export class TestSelectComponent implements OnInit {
       isDisplayed: true
     },
     {
-      dynamicComponentType: 3,
+      componentType: 3,
       name: 'salary',
       valueType: DynamicInputValueType.Decimal,
       label: 'Salaire',

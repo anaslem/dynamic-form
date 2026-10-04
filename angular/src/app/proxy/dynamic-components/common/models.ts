@@ -3,9 +3,10 @@ import type { DynamicFilterRuleActionType } from '../../enums/dynamic-filter-rul
 import type { DynamicFilterRuleOperatorType } from '../../enums/dynamic-filter-rule-operator-type.enum';
 
 export interface ADynamicConfigurationDto {
-  dynamicComponentType?: DynamicComponentType;
+  componentType?: DynamicComponentType;
   id?: string;
   name?: string;
+  groupName?: string;
   isDisplayed?: boolean;
   disabled?: boolean;
   required?: boolean;
@@ -15,16 +16,17 @@ export interface ADynamicConfigurationDto {
   label?: string;
 }
 
-export interface ApiDataSourceDto {
-  serviceName?: string;
-  methodName?: string;
-}
-
 export interface DynamicFilterRuleDto {
   targetFilterId?: string;
   actionType?: DynamicFilterRuleActionType;
   operatorType?: DynamicFilterRuleOperatorType;
   propertyName?: string;
+  targetValue?: object;
+}
+
+export interface ApiDataSourceDto {
+  serviceName?: string;
+  methodName?: string;
 }
 
 export interface DynamicOptionDto {
@@ -34,8 +36,16 @@ export interface DynamicOptionDto {
   suffixValue?: string;
   indicator?: string;
   disabled?: boolean;
+  disabledReason?: string;
   isSelected?: boolean;
-  as400Value?: object;
+  externalReferenceId?: string;
+  priceInfo?: DynamicPriceDto;
+}
+
+export interface DynamicPriceDto {
+  amount?: number | null;
+  currency?: string;
+  formattedDisplay?: string;
 }
 
 export interface DynamicRangeValueDto {

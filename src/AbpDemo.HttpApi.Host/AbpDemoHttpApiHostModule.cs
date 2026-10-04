@@ -40,6 +40,7 @@ using Volo.Abp.Studio.Client.AspNetCore;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.AspNetCore.Mvc.NewtonsoftJson;
 
 namespace AbpDemo;
 
@@ -53,7 +54,8 @@ namespace AbpDemo;
     typeof(AbpDemoEntityFrameworkCoreModule),
     typeof(AbpAccountWebOpenIddictModule),
     typeof(AbpSwashbuckleModule),
-    typeof(AbpAspNetCoreSerilogModule)
+    typeof(AbpAspNetCoreSerilogModule),
+    typeof(AbpAspNetCoreMvcNewtonsoftModule)
     )]
 public class AbpDemoHttpApiHostModule : AbpModule
 {

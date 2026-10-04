@@ -37,43 +37,11 @@ public enum DynamicComponentType
     /// <summary>
     /// Free input component.
     /// </summary>
-    Input = 3
+    Input = 3,
+    Toggle = 4
 }
-/// <summary>
-/// Defines the action to apply when a filter rule is satisfied.
-/// </summary>
-public enum DynamicFilterRuleActionType
-{
-    /// <summary>
-    /// Makes the component visible and active.
-    /// </summary>
-    RenderDisplay = 1,
-
-    /// <summary>
-    /// Displays the component without removing it from configuration.
-    /// </summary>
-    Display = 2,
-
-    /// <summary>
-    /// Removes the component from display.
-    /// </summary>
-    Delete = 3,
-}
-/// <summary>
-/// Defines the comparison operator used by a dynamic filter rule.
-/// </summary>
-public enum DynamicFilterRuleOperatorType
-{
-    /// <summary>
-    /// Checks that a value contains the expected target.
-    /// </summary>
-    Contains = 1,
-
-    /// <summary>
-    /// Checks that a value belongs to a set of values.
-    /// </summary>
-    In = 2
-}
+public enum DynamicFilterRuleActionType { Show, Hide, Disable, Enable }
+public enum DynamicFilterRuleOperatorType { Equals, NotEquals, GreaterThan, LessThan }
 
 /// <summary>
 /// Represents the value type allowed in a dynamic input field.
