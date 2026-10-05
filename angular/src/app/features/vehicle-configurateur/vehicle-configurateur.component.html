@@ -1,0 +1,135 @@
+<div class="container-fluid py-4">
+
+  <!-- SPINNER CHARGEMENT -->
+  @if (store.isLoading()) {
+    <div class="d-flex justify-content-center p-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement de la configuration...</span>
+      </div>
+    </div>
+  } 
+  
+  <!-- ERREUR -->
+  @else if (store.error()) {
+    <div class="alert alert-danger shadow-sm">
+      <i class="fa fa-exclamation-triangle me-2"></i> 
+      Erreur lors du chargement : {{ store.error() }}
+    </div>
+  } 
+  
+  <!-- AFFICHAGE PRINCIPAL -->
+  @else if (store.formConfig()) {
+    
+    <!-- EN-TÊTE RÉCAPITULATIF (Global Info) -->
+    <div class="card mb-4 shadow-sm border-0 border-start border-primary border-4 bg-light">
+      <div class="card-body d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          <h4 class="mb-1 fw-bold">Configuration N° {{ store.globalInfo()?.requestNumber }}</h4>
+          <div class="d-flex gap-3 text-muted small mt-2">
+            <span>
+              <i class="fa fa-leaf me-1"></i> CO2 Policy: 
+              <span class="badge" [class.bg-success]="store.globalInfo()?.isInCO2Policy" [class.bg-secondary]="!store.globalInfo()?.isInCO2Policy">
+                {{ store.globalInfo()?.isInCO2Policy ? 'Inclus' : 'Exclu' }}
+              </span>
+            </span>
+            <span>
+              <i class="fa fa-calculator me-1"></i> TCO: {{ store.globalInfo()?.tcoValue | currency:'EUR' }}
+            </span>
+          </div>
+        </div>
+        <div class="text-end mt-3 mt-md-0">
+          <p class="text-muted mb-0 small text-uppercase fw-bold">{{ store.globalInfo()?.amountType }} Loyer Mensuel</p>
+          <h2 class="text-primary fw-bold mb-0">
+            {{ store.globalInfo()?.rentValue | currency:'EUR' }}
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCORDÉONS DYNAMIQUES -->
+    <div class="accordion shadow-sm" id="configuratorAccordion">
+      
+      @for (group of store.accordions(); track group.groupCode; let isFirst = $first) {
+        
+        <div class="accordion-item border-0 border-bottom">
+          <!-- TITRE ACCORDÉON -->
+          <h2 class="accordion-header" [id]="'heading_' + group.groupCode">
+            <button 
+              class="accordion-button fw-bold text-dark bg-white" 
+              [class.collapsed]="activeGroup() !== group.groupCode"
+              type="button" 
+              (click)="toggleAccordion(group.groupCode!)">
+              
+              @if (group.order === 1) { <i class="fa fa-road me-2 text-primary"></i> }
+              @else if (group.order === 2) { <i class="fa fa-cogs me-2 text-primary"></i> }
+              @else if (group.order === 3) { <i class="fa fa-paint-brush me-2 text-primary"></i> }
+              @else { <i class="fa fa-file-contract me-2 text-primary"></i> }
+
+              {{ group.title | abpLocalization }}
+            </button>
+          </h2>
+          
+          <!-- CONTENU ACCORDÉON -->
+          <div 
+            [id]="'collapse_' + group.groupCode" 
+            class="accordion-collapse collapse" 
+            [class.show]="activeGroup() === group.groupCode"
+            data-bs-parent="#configuratorAccordion">
+            
+            <div class="accordion-body bg-light rounded-bottom p-4">
+              <div class="row g-4">
+                
+                @for (comp of group.components; track comp.id) {
+                  <!-- Grille Bootstrap réactive : 1 col sur mobile, 2 sur tablette, 3 sur desktop -->
+                  <div class="col-12 col-md-6 col-lg-4">
+                    
+                    <!-- POLYMORPHISME : Injection du bon composant selon le DTO -->
+                    @switch (comp.componentType) {
+                      
+                      @case (ComponentTypes.Input) {
+                        <app-dynamic-input 
+                          [config]="comp"
+                          [ngModel]="store.selections()[comp.id!] ?? asInput(comp).defaultValue"
+                          (ngModelChange)="onComponentValueChanged(comp.id!, $event)">
+                        </app-dynamic-input>
+                      }
+
+                      @case (ComponentTypes.Select) {
+                        <app-dynamic-select 
+                          [config]="comp"
+                          [ngModel]="store.selections()[comp.id!] ?? asSelect(comp).defaultValueIds"
+                          (ngModelChange)="onComponentValueChanged(comp.id!, $event)">
+                        </app-dynamic-select>
+                      }
+
+                      <!-- Fallback si le backend envoie un Slider ou autre non implémenté -->
+                      @default {
+                        <div class="alert alert-warning py-2 mb-0">
+                          <i class="fa fa-code me-2"></i> Composant type {{ comp.componentType }} non supporté.
+                        </div>
+                      }
+                    }
+                  </div>
+                }
+
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      }
+
+    </div>
+
+    <!-- BOUTONS D'ACTION DU FORMULAIRE -->
+    <div class="d-flex justify-content-end mt-4 gap-2">
+      <button class="btn btn-outline-secondary">
+        <i class="fa fa-times me-1"></i> Annuler
+      </button>
+      <button class="btn btn-primary shadow-sm" (click)="store.currentPayload()">
+        <i class="fa fa-save me-1"></i> Recalculer / Sauvegarder
+      </button>
+    </div>
+
+  }
+</div>

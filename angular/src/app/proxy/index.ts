@@ -4,4 +4,5 @@ import * as DynamicComponents from './dynamic-components';
 import * as DynamicComponentsPreview from './dynamic-components-preview';
 import * as Enums from './enums';
 import * as Shared from './shared';
-export { Authors, Books, DynamicComponents, DynamicComponentsPreview, Enums, Shared };
+import * as VehicleConfigurator from './vehicle-configurator';
+export { Authors, Books, DynamicComponents, DynamicComponentsPreview, Enums, Shared, VehicleConfigurator };

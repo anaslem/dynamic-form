@@ -44,5 +44,9 @@ export const APP_ROUTES: Routes = [
   {
     path: 'configuratorapp',
     loadComponent: () => import('./features/vehicle-configurator-app/vehicle-configurator.component').then(m => m.VehicleConfiguratorComponent)
+  },
+   {
+    path: 'configurateur',
+    loadComponent: () => import('./features/vehicle-configurateur/vehicle-configurateur.component').then(m => m.VehicleConfigurateurComponent)
   }
 ];

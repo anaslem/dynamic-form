@@ -1,0 +1,2313 @@
+{
+  "requestNumber": 1927745,
+  "amountType": "TTC",
+  "rent": { "valueTTC": 0.0 },
+  "isInCO2policy": true,
+  "isInWeightMalusPolicy": true,
+  "isInBudget": true,
+  "budget": {
+    "criteria": "Loyer",
+    "mode": "Afficher un budget mensuel",
+    "monthCount": 1,
+    "rentMax": {
+      "valueTTC": 750.0,
+      "valueHT": 750.0
+    },
+    "isInBudget": true,
+    "budgetDeviationPercent": -23.4,
+    "budgetUsedPercent": 0.0
+  },
+  "budgetDeviationPercent": -23.4,
+  "isUpdateVehicle": false,
+  "tco": { "value": 0.0 },
+  "investedValue": { "value": 0.0 },
+  "globalDiscounts": 0.0,
+  "policyControl": "",
+  "prestations": [
+    {
+      "category": "Carte grise",
+      "items": [
+        {
+          "id": "0000000842",
+          "family": "TAXE",
+          "abbreviatedName": "CG",
+          "genericName": "Taxe",
+          "shortDescription": "Certif. immat. réel fi.",
+          "longDescription": "Certificat d'immatriculation réel financé",
+          "name": "",
+          "tooltip": "Certificat d'immatriculation inclus dans les loyers.",
+          "isSelectable": true,
+          "isSelected": false,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": false,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 1.0,
+            "minPercent": 100.0,
+            "max": 1.0,
+            "maxPercent": 100.0,
+            "defaultValue": 1.0,
+            "defaultValuePercent": 100.0,
+            "value": 1.0,
+            "valuePercent": 100.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "TAX",
+          "calculationRule": "REGT101",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "Complément1Loyer",
+      "items": [
+        {
+          "id": "0000002944",
+          "family": "AJOUT",
+          "abbreviatedName": "1er loyer",
+          "genericName": "Complément 1er loyer",
+          "shortDescription": "Complément 1er loyer",
+          "longDescription": "Complément 1er loyer Saisi",
+          "name": "Premier loyer majoré",
+          "tooltip": "S'ajoute à un (éventuel) bonus écologique",
+          "isSelectable": true,
+          "isSelected": false,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": false,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 30000.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": true
+          },
+          "rateConfiguration": {
+            "min": 0.01,
+            "minPercent": 1.0,
+            "max": 0.15,
+            "maxPercent": 15.0,
+            "defaultValue": 0.1,
+            "defaultValuePercent": 10.0,
+            "value": 0.1,
+            "valuePercent": 10.0,
+            "isUpdatable": true
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT282A",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "Duree",
+      "items": [
+        {
+          "id": "0000000560",
+          "family": "DU",
+          "abbreviatedName": "Durée",
+          "genericName": "Durée",
+          "shortDescription": "Durée",
+          "longDescription": "Durée",
+          "isSelectable": true,
+          "isSelected": true,
+          "isIncluded": true,
+          "isRequired": true,
+          "isUpdatable": false,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 0.0,
+            "minPercent": 0.0,
+            "max": 0.0,
+            "maxPercent": 0.0,
+            "defaultValue": 0.0,
+            "defaultValuePercent": 0.0,
+            "value": 0.0,
+            "valuePercent": 0.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 9,
+            "max": 72,
+            "defaultValue": 36,
+            "value": 36,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [
+            [
+              {
+                "id": 1,
+                "prestationId": "560",
+                "value": 36
+              },
+              {
+                "id": 2,
+                "prestationId": "561",
+                "value": 90000
+              }
+            ],
+            [
+              {
+                "id": 1,
+                "prestationId": "560",
+                "value": 36
+              },
+              {
+                "id": 2,
+                "prestationId": "561",
+                "value": 120000
+              }
+            ]
+          ],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "CAL",
+          "calculationRule": "REGT650",
+          "generated": "1",
+          "managed": "1",
+          "forced": "1",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "Fiscalité",
+      "items": [
+        {
+          "id": "0000002189",
+          "family": "FLAG",
+          "abbreviatedName": "WLTPCO2",
+          "genericName": "Fiscalité",
+          "shortDescription": "Taux CO2 saisi WLTP",
+          "longDescription": "Taux CO2 saisi WLTP",
+          "name": "",
+          "tooltip": "Taux de CO2 à saisir par vos soins si vous le connaissez.",
+          "isSelectable": true,
+          "isSelected": false,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": true,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 0.0,
+            "minPercent": 0.0,
+            "max": 0.0,
+            "maxPercent": 0.0,
+            "defaultValue": 1.0,
+            "defaultValuePercent": 100.0,
+            "value": 1.0,
+            "valuePercent": 100.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 0,
+            "max": 999,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": true
+          },
+          "coefficientConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "CAL",
+          "calculationRule": "REGTA11",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        },
+        {
+          "id": "0000002192",
+          "family": "TAXE",
+          "abbreviatedName": "Fiscalité",
+          "genericName": "TAXE",
+          "shortDescription": "Puissance fiscale réelle",
+          "longDescription": "Puissance fiscale réelle saisie ou flux SIV",
+          "isSelectable": true,
+          "isSelected": true,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": true,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "69PUISSANCE",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 374.4,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 0.0,
+            "minPercent": 0.0,
+            "max": 0.0,
+            "maxPercent": 0.0,
+            "defaultValue": 0.0,
+            "defaultValuePercent": 0.0,
+            "value": 0.0,
+            "valuePercent": 0.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 0,
+            "value": 8,
+            "isUpdatable": true
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT102W",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        },
+        {
+          "id": "0000000830",
+          "family": "FISC",
+          "abbreviatedName": "Fiscalité",
+          "genericName": "Fiscalité",
+          "shortDescription": "Taux d'émission de CO2",
+          "longDescription": "Taux d'émission de CO2",
+          "name": "",
+          "tooltip": "Taux de CO2 homologation pour  ce modèle nu, sans options.",
+          "isSelectable": true,
+          "isSelected": true,
+          "isIncluded": true,
+          "isRequired": false,
+          "isUpdatable": false,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "69FORFAIT",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 0.0,
+            "minPercent": 0.0,
+            "max": 0.0,
+            "maxPercent": 0.0,
+            "defaultValue": 1.0,
+            "defaultValuePercent": 100.0,
+            "value": 0.0,
+            "valuePercent": 0.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 0,
+            "value": 108,
+            "isUpdatable": true
+          },
+          "coefficientConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 1.0,
+            "value": 0.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "2026-10-05",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT396",
+          "generated": "1",
+          "managed": "1",
+          "forced": "1",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "Identifiant régional",
+      "items": [
+        {
+          "id": "0000000441",
+          "family": "FRA",
+          "abbreviatedName": "ID Reg",
+          "genericName": "Identifiant régional",
+          "shortDescription": "Identifiant régional 69",
+          "longDescription": "Identifiant régional",
+          "isSelectable": true,
+          "isSelected": true,
+          "isIncluded": true,
+          "isRequired": false,
+          "isUpdatable": true,
+          "isDeletable": true,
+          "aS400Configurations": [
+            {
+              "name": "01 - AIN",
+              "defaultIdentifier": "01",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "02 - AISNE",
+              "defaultIdentifier": "02",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "03 - ALLIER",
+              "defaultIdentifier": "03",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "04 - ALPES DE HAUTE PROVENCE",
+              "defaultIdentifier": "04",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "05 - ALPES (HAUTES)",
+              "defaultIdentifier": "05",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "06 - ALPES MARITIMES",
+              "defaultIdentifier": "06",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "07 - ARDECHE",
+              "defaultIdentifier": "07",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "08 - ARDENNES",
+              "defaultIdentifier": "08",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "09 - ARIEGE",
+              "defaultIdentifier": "09",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "10 - AUBE",
+              "defaultIdentifier": "10",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "11 - AUDE",
+              "defaultIdentifier": "11",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "12 - AVEYRON",
+              "defaultIdentifier": "12",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "13 - BOUCHES DU RHONE",
+              "defaultIdentifier": "13",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "14 - CALVADOS",
+              "defaultIdentifier": "14",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "15 - CANTAL",
+              "defaultIdentifier": "15",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "16 - CHARENTE",
+              "defaultIdentifier": "16",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "17 - CHARENTE MARITIME",
+              "defaultIdentifier": "17",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "18 - CHER",
+              "defaultIdentifier": "18",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "19 - CORREZE",
+              "defaultIdentifier": "19",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "2A - CORSE DU SUD",
+              "defaultIdentifier": "2A",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "2B - CORSE (HAUTE)",
+              "defaultIdentifier": "2B",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "21 - COTE D'OR",
+              "defaultIdentifier": "21",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "22 - COTES D'ARMOR",
+              "defaultIdentifier": "22",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "23 - CREUSE",
+              "defaultIdentifier": "23",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "24 - DORDOGNE",
+              "defaultIdentifier": "24",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "25 - DOUBS",
+              "defaultIdentifier": "25",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "26 - DROME",
+              "defaultIdentifier": "26",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "27 - EURE",
+              "defaultIdentifier": "27",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "28 - EURE ET LOIR",
+              "defaultIdentifier": "28",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "29 - FINISTERE",
+              "defaultIdentifier": "29",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "30 - GARD",
+              "defaultIdentifier": "30",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "31 - GARONNE (HAUTE)",
+              "defaultIdentifier": "31",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "32 - GERS",
+              "defaultIdentifier": "32",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "33 - GIRONDE",
+              "defaultIdentifier": "33",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "34 - HERAULT",
+              "defaultIdentifier": "34",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "35 - ILLE ET VILAINE",
+              "defaultIdentifier": "35",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "36 - INDRE",
+              "defaultIdentifier": "36",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "37 - INDRE ET LOIRE",
+              "defaultIdentifier": "37",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "38 - ISERE",
+              "defaultIdentifier": "38",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "39 - JURA",
+              "defaultIdentifier": "39",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "40 - LANDES",
+              "defaultIdentifier": "40",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "41 - LOIR ET CHER",
+              "defaultIdentifier": "41",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "42 - LOIRE",
+              "defaultIdentifier": "42",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "43 - LOIRE (HAUTE)",
+              "defaultIdentifier": "43",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "44 - LOIRE ATLANTIQUE",
+              "defaultIdentifier": "44",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "45 - LOIRET",
+              "defaultIdentifier": "45",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "46 - LOT",
+              "defaultIdentifier": "46",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "47 - LOT ET GARONNE",
+              "defaultIdentifier": "47",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "48 - LOZERE",
+              "defaultIdentifier": "48",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "49 - MAINE ET LOIRE",
+              "defaultIdentifier": "49",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "50 - MANCHE",
+              "defaultIdentifier": "50",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "51 - MARNE",
+              "defaultIdentifier": "51",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "52 - MARNE (HAUTE)",
+              "defaultIdentifier": "52",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "53 - MAYENNE",
+              "defaultIdentifier": "53",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "54 - MEURTHE ET MOSELLE",
+              "defaultIdentifier": "54",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "55 - MEUSE",
+              "defaultIdentifier": "55",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "56 - MORBIHAN",
+              "defaultIdentifier": "56",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "57 - MOSELLE",
+              "defaultIdentifier": "57",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "58 - NIEVRE",
+              "defaultIdentifier": "58",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "59 - NORD",
+              "defaultIdentifier": "59",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "60 - OISE",
+              "defaultIdentifier": "60",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "61 - ORNE",
+              "defaultIdentifier": "61",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "62 - PAS DE CALAIS",
+              "defaultIdentifier": "62",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "63 - PUY DE DOME",
+              "defaultIdentifier": "63",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "64 - PYRENEES ATLANTIQUES",
+              "defaultIdentifier": "64",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "65 - PYRENEES HAUTES",
+              "defaultIdentifier": "65",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "66 - PYRENEES ORIENTALES",
+              "defaultIdentifier": "66",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "67 - RHIN (BAS)",
+              "defaultIdentifier": "67",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "68 - RHIN (HAUT)",
+              "defaultIdentifier": "68",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "69 - RHONE",
+              "defaultIdentifier": "69",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "70 - SAONE (HAUTE)",
+              "defaultIdentifier": "70",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "71 - SAONE ET LOIRE",
+              "defaultIdentifier": "71",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "72 - SARTHE",
+              "defaultIdentifier": "72",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "73 - SAVOIE",
+              "defaultIdentifier": "73",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "74 - SAVOIE (HAUTE)",
+              "defaultIdentifier": "74",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "75 - PARIS (Ville de)",
+              "defaultIdentifier": "75",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "76 - SEINE MARITIME",
+              "defaultIdentifier": "76",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "77 - SEINE ET MARNE",
+              "defaultIdentifier": "77",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "78 - YVELINES",
+              "defaultIdentifier": "78",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "79 - SEVRES (DEUX)",
+              "defaultIdentifier": "79",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "80 - SOMME",
+              "defaultIdentifier": "80",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "81 - TARN",
+              "defaultIdentifier": "81",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "82 - TARN ET GARONNE",
+              "defaultIdentifier": "82",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "83 - VAR",
+              "defaultIdentifier": "83",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "84 - VAUCLUSE",
+              "defaultIdentifier": "84",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "85 - VENDEE",
+              "defaultIdentifier": "85",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "86 - VIENNE",
+              "defaultIdentifier": "86",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "87 - VIENNE (HAUTE)",
+              "defaultIdentifier": "87",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "88 - VOSGES",
+              "defaultIdentifier": "88",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "89 - YONNE",
+              "defaultIdentifier": "89",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "90 - BELFORT (Territoire de)",
+              "defaultIdentifier": "90",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "91 - ESSONNE",
+              "defaultIdentifier": "91",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "92 - HAUTS DE SEINE",
+              "defaultIdentifier": "92",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "93 - SEINE SAINT DENIS",
+              "defaultIdentifier": "93",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "94 - VAL DE MARNE",
+              "defaultIdentifier": "94",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "95 - VAL D'OISE",
+              "defaultIdentifier": "95",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "971 - GUADELOUPE",
+              "defaultIdentifier": "971",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "972 - MARTINIQUE",
+              "defaultIdentifier": "972",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "973 - GUYANE",
+              "defaultIdentifier": "973",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "974 - REUNION",
+              "defaultIdentifier": "974",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            },
+            {
+              "name": "976 - MAYOTTE",
+              "defaultIdentifier": "976",
+              "defaultAmount": 0.0,
+              "defaultQuantity": 0,
+              "defaultRate": 0.0,
+              "defaultCoefficient": 0.0
+            }
+          ],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "69",
+            "isUpdatable": true
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 0.0,
+            "minPercent": 0.0,
+            "max": 1.0,
+            "maxPercent": 100.0,
+            "defaultValue": 0.0,
+            "defaultValuePercent": 0.0,
+            "value": 0.0,
+            "valuePercent": 0.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT551",
+          "generated": "1",
+          "managed": "1",
+          "forced": "1",
+          "wqrog": "WQTLSTDEPT"
+        }
+      ]
+    },
+    {
+      "category": "Infos vendeur",
+      "items": [
+        {
+          "id": "0000000526",
+          "family": "CAR",
+          "abbreviatedName": "Energ.Liv.",
+          "genericName": "Energie",
+          "shortDescription": "Energie à la livraison",
+          "longDescription": "Energie à la livraison",
+          "isSelectable": true,
+          "isSelected": true,
+          "isIncluded": true,
+          "isRequired": true,
+          "isUpdatable": false,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 1.0,
+            "minPercent": 100.0,
+            "max": 1.0,
+            "maxPercent": 100.0,
+            "defaultValue": 1.0,
+            "defaultValuePercent": 100.0,
+            "value": 1.0,
+            "valuePercent": 100.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "CAL",
+          "calculationRule": "REGT110",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "Kilometres",
+      "items": [
+        {
+          "id": "0000000561",
+          "family": "KM",
+          "abbreviatedName": "Km",
+          "genericName": "Kilométrage",
+          "shortDescription": "Kilométrage",
+          "longDescription": "Kilométrage",
+          "isSelectable": true,
+          "isSelected": true,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": false,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": false
+          },
+          "rateConfiguration": {
+            "min": 0.0,
+            "minPercent": 0.0,
+            "max": 0.0,
+            "maxPercent": 0.0,
+            "defaultValue": 0.0,
+            "defaultValuePercent": 0.0,
+            "value": 0.0,
+            "valuePercent": 0.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 2500,
+            "max": 250000,
+            "defaultValue": 90000,
+            "value": 90000,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 0.0,
+            "max": 0.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT651",
+          "generated": "1",
+          "managed": "1",
+          "forced": "1",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "Participation",
+      "items": [
+        {
+          "id": "0000000004",
+          "family": "PAR",
+          "abbreviatedName": "Part.Cond.",
+          "genericName": "Part. conducteur",
+          "shortDescription": "Part. conducteur",
+          "longDescription": "Participation conducteur",
+          "isSelectable": true,
+          "isSelected": false,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": true,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 999999999.99,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "HT",
+            "isUpdatable": true
+          },
+          "rateConfiguration": {
+            "min": 1.0,
+            "minPercent": 100.0,
+            "max": 1.0,
+            "maxPercent": 100.0,
+            "defaultValue": 1.0,
+            "defaultValuePercent": 100.0,
+            "value": 1.0,
+            "valuePercent": 100.0,
+            "isUpdatable": false
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT260",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        }
+      ]
+    },
+    {
+      "category": "1Loyer",
+      "items": [
+        {
+          "id": "0000000487",
+          "family": "1LO",
+          "abbreviatedName": "1er loyer",
+          "genericName": "1er loyer",
+          "shortDescription": "1er loyer",
+          "longDescription": "1er loyer",
+          "name": "Premier loyer majoré",
+          "tooltip": "A intégrer en cas de bonus, delta de la somme prélevée lors de la première facture",
+          "isSelectable": true,
+          "isSelected": false,
+          "isIncluded": false,
+          "isRequired": false,
+          "isUpdatable": true,
+          "isDeletable": true,
+          "aS400Configurations": [],
+          "identifierConfiguration": {
+            "defaultValue": "",
+            "value": "",
+            "isUpdatable": false
+          },
+          "amountConfiguration": {
+            "min": 0.0,
+            "max": 30000.0,
+            "defaultValue": 0.0,
+            "value": 0.0,
+            "amountType": "TTC",
+            "isUpdatable": true
+          },
+          "rateConfiguration": {
+            "min": 0.01,
+            "minPercent": 1.0,
+            "max": 0.15,
+            "maxPercent": 15.0,
+            "defaultValue": 0.1,
+            "defaultValuePercent": 10.0,
+            "value": 0.1,
+            "valuePercent": 10.0,
+            "isUpdatable": true
+          },
+          "quantityConfigurations": {
+            "min": 1,
+            "max": 1,
+            "defaultValue": 1,
+            "value": 1,
+            "isUpdatable": false
+          },
+          "coefficientConfiguration": {
+            "min": 1.0,
+            "max": 1.0,
+            "defaultValue": 1.0,
+            "value": 1.0,
+            "isUpdatable": false
+          },
+          "dateConfiguration": {
+            "defaultValue": "0001-01-01",
+            "value": "0001-01-01",
+            "isUpdatable": false
+          },
+          "errors": [],
+          "policyConfigurations": [],
+          "isInError": false,
+          "dependant": "0",
+          "mode": "SAI",
+          "calculationRule": "REGT280",
+          "generated": "1",
+          "managed": "1",
+          "forced": "0",
+          "wqrog": ""
+        }
+      ]
+    }
+  ],
+  "accessories": [],
+  "options": [
+    {
+      "name": "CROCHET D'ATTELAGE RETRACTABLE",
+      "amount": {
+        "valueTTC": 183.33,
+        "valueHT": 916.67
+      },
+      "amountToDisplay": 1100.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30261,
+      "jatoCode": 1007,
+      "jatoConfigurations": [
+        {
+          "schemaId": 1601,
+          "groupName": "Préparation attelage",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": true
+          },
+          "jatoTxtEn0": "Trailer towing preparation",
+          "jatoTxtEn": "standard",
+          "jatoTxtFr0": "Préparation attelage",
+          "jatoTxtFr": "série",
+          "dataJato": "S",
+          "locat": "-"
+        }
+      ],
+      "exclusions": {
+        "type": 1,
+        "childrens": [ {} ]
+      }
+    },
+    {
+      "name": "CROCHET D'ATTELAGE AMOVIBLE",
+      "amount": {
+        "valueTTC": 141.67,
+        "valueHT": 708.33
+      },
+      "amountToDisplay": 850.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30299,
+      "jatoCode": 1006,
+      "jatoConfigurations": [
+        {
+          "schemaId": 1601,
+          "groupName": "Préparation attelage",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": true
+          },
+          "jatoTxtEn0": "Trailer towing preparation",
+          "jatoTxtEn": "standard",
+          "jatoTxtFr0": "Préparation attelage",
+          "jatoTxtFr": "série",
+          "dataJato": "S",
+          "locat": "-"
+        }
+      ],
+      "exclusions": {
+        "type": 1,
+        "childrens": [ {} ]
+      }
+    },
+    {
+      "name": "TAPIS DE COFFRE REVERSIBLE",
+      "amount": {
+        "valueTTC": 16.67,
+        "valueHT": 83.33
+      },
+      "amountToDisplay": 100.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30312,
+      "jatoCode": 1009,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "TOIT PANORAMIQUE OUVRANT",
+      "amount": {
+        "valueTTC": 216.67,
+        "valueHT": 1083.33
+      },
+      "amountToDisplay": 1300.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30313,
+      "jatoCode": 1004,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "ECROUS ANTIVOL",
+      "amount": {
+        "valueTTC": 8.33,
+        "valueHT": 41.67
+      },
+      "amountToDisplay": 50.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30363,
+      "jatoCode": 1003,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "PACK HIVER",
+      "amount": {
+        "valueTTC": 133.33,
+        "valueHT": 666.67
+      },
+      "amountToDisplay": 800.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30585,
+      "jatoCode": 1012,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZONE DE CHARGEMENT COMPARTIMENTEE",
+      "amount": {
+        "valueTTC": 33.33,
+        "valueHT": 166.67
+      },
+      "amountToDisplay": 200.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30695,
+      "jatoCode": 1005,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "PACK FUMEUR",
+      "amount": {
+        "valueTTC": 5.0,
+        "valueHT": 25.0
+      },
+      "amountToDisplay": 30.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30701,
+      "jatoCode": 1011,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "PRE-EQUIPEMENT ATTELAGE",
+      "amount": {
+        "valueTTC": 16.67,
+        "valueHT": 83.33
+      },
+      "amountToDisplay": 100.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30704,
+      "jatoCode": 1008,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "ROUE DE SECOURS GALETTE 17\"",
+      "amount": {
+        "valueTTC": 33.33,
+        "valueHT": 166.67
+      },
+      "amountToDisplay": 200.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30706,
+      "jatoCode": 1002,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "ALARME ANTIVOL PERIMETRIQUE ET VOLUMIQUE AVEC AVER",
+      "amount": {
+        "valueTTC": 66.67,
+        "valueHT": 333.33
+      },
+      "amountToDisplay": 400.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 30757,
+      "jatoCode": 1017,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "KIT DE PRE-EQUIPEMENT GRILLE DE SEPARATION POUR CH",
+      "amount": {
+        "valueTTC": 8.33,
+        "valueHT": 41.67
+      },
+      "amountToDisplay": 50.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 31016,
+      "jatoCode": 1010,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "PNEUS TOUTES SAISONS",
+      "amount": {
+        "valueTTC": 66.67,
+        "valueHT": 333.33
+      },
+      "amountToDisplay": 400.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 32009,
+      "jatoCode": 1001,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "PEINTURE METALLISEE",
+      "amount": {
+        "valueTTC": 50.0,
+        "valueHT": 250.0
+      },
+      "amountToDisplay": 300.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 45366,
+      "jatoCode": 1014,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ],
+      "exclusions": {
+        "type": 1,
+        "childrens": [ {} ]
+      }
+    },
+    {
+      "name": "PEINTURE METALLISEE FASHION",
+      "amount": {
+        "valueTTC": 50.0,
+        "valueHT": 250.0
+      },
+      "amountToDisplay": 300.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 165442,
+      "jatoCode": 1013,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ],
+      "exclusions": {
+        "type": 1,
+        "childrens": [ {} ]
+      }
+    },
+    {
+      "name": "PROJECTEURS DYNAMIC MATRIX LED AVEC BANDEAU LUMINE",
+      "amount": {
+        "valueTTC": 200.0,
+        "valueHT": 1000.0
+      },
+      "amountToDisplay": 1200.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 176538,
+      "jatoCode": 1015,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "AFFICHAGE TETE HAUTE",
+      "amount": {
+        "valueTTC": 100.0,
+        "valueHT": 500.0
+      },
+      "amountToDisplay": 600.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 287427,
+      "jatoCode": 1016,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "JANTES ALLIAGE 20 (8X20) PREMIUM FINITION ABSOLUTE",
+      "amount": {
+        "valueTTC": 100.0,
+        "valueHT": 500.0
+      },
+      "amountToDisplay": 600.0,
+      "isSelected": false,
+      "isRequired": false,
+      "isPolicyHidePrice": true,
+      "isManualCreation": false,
+      "modelCode": 1161570,
+      "modelOption": "1",
+      "id": 291780,
+      "jatoCode": 1018,
+      "jatoConfigurations": [
+        {
+          "schemaId": 0,
+          "groupName": "Autres options",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          }
+        }
+      ],
+      "exclusions": {
+        "type": 1,
+        "childrens": [ {} ]
+      }
+    }
+  ],
+  "externalColors": [
+    {
+      "as400Code": 0,
+      "as400Name": "Gris solar métallisé",
+      "jatoName": "Gris solar métallisé",
+      "id": 72345,
+      "jatoCode": 1019,
+      "jatoConfigurations": [
+        {
+          "schemaId": 31102,
+          "groupName": "gris",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          },
+          "dataJato": "GRY",
+          "locat": "-"
+        }
+      ],
+      "requirements": {
+        "type": 1,
+        "childrens": [
+          {},
+          {}
+        ]
+      },
+      "exclusions": {
+        "type": 1,
+        "childrens": [
+          {},
+          {}
+        ]
+      }
+    },
+    {
+      "as400Code": 0,
+      "as400Name": "Fashion Gris magnetic métallisé",
+      "jatoName": "Fashion Gris magnetic métallisé",
+      "id": 1147386,
+      "jatoCode": 1020,
+      "jatoConfigurations": [
+        {
+          "schemaId": 31102,
+          "groupName": "gris",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          },
+          "dataJato": "GRY",
+          "locat": "-"
+        }
+      ],
+      "requirements": {
+        "type": 1,
+        "childrens": [
+          {},
+          {}
+        ]
+      },
+      "exclusions": {
+        "type": 1,
+        "childrens": [
+          {},
+          {}
+        ]
+      }
+    },
+    {
+      "as400Code": 0,
+      "as400Name": "Premium Blanc Metropolis",
+      "jatoName": "Premium Blanc Metropolis",
+      "id": 1148370,
+      "jatoCode": 1021,
+      "jatoConfigurations": [
+        {
+          "schemaId": 31102,
+          "groupName": "blanc",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          },
+          "dataJato": "WHT",
+          "locat": "-"
+        }
+      ],
+      "requirements": {
+        "type": 1,
+        "childrens": [ {} ]
+      },
+      "exclusions": {
+        "type": 1,
+        "childrens": [
+          {},
+          {},
+          {},
+          {}
+        ]
+      }
+    }
+  ],
+  "internalColors": [
+    {
+      "as400Code": 0,
+      "as400Name": "Sellerie Sound Edition gris clair et noir Ebony en",
+      "jatoName": "Sellerie Sound Edition gris clair et noir Ebony en mixte suédine et inserts Sensico avec surpiqûres grises",
+      "id": 1148369,
+      "jatoCode": 1022,
+      "jatoConfigurations": [
+        {
+          "schemaId": 33902,
+          "groupName": "gris",
+          "policyConfiguration": {
+            "isAuthorized": false,
+            "isRequired": false,
+            "isBanned": false
+          },
+          "dataJato": "GRY",
+          "locat": "-"
+        }
+      ]
+    }
+  ],
+  "globalError": "",
+  "as400Errors": []
+}
